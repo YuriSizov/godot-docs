@@ -1860,9 +1860,7 @@ Returns the :ref:`PositionalShadowAtlasQuadrantSubdiv<enum_Viewport_PositionalSh
 
 :ref:`int<class_int>` **get_render_info** **(** :ref:`RenderInfoType<enum_Viewport_RenderInfoType>` type, :ref:`RenderInfo<enum_Viewport_RenderInfo>` info **)**
 
-.. container:: contribute
-
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Returns rendering statistics of the given type. See :ref:`RenderInfoType<enum_Viewport_RenderInfoType>` and :ref:`RenderInfo<enum_Viewport_RenderInfo>` for options.
 
 .. rst-class:: classref-item-separator
 
@@ -2032,9 +2030,7 @@ If an earlier method marks the input as handled via :ref:`set_input_as_handled<c
 
 void **push_text_input** **(** :ref:`String<class_String>` text **)**
 
-.. container:: contribute
-
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Helper method which calls the ``set_text()`` method on the currently focused :ref:`Control<class_Control>`, provided that it is defined (e.g. if the focused Control is :ref:`Button<class_Button>` or :ref:`LineEdit<class_LineEdit>`).
 
 .. rst-class:: classref-item-separator
 

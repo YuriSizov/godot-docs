@@ -269,9 +269,7 @@ Constructs a **Quaternion** as a copy of the given **Quaternion**.
 
 :ref:`Quaternion<class_Quaternion>` **Quaternion** **(** :ref:`Vector3<class_Vector3>` arc_from, :ref:`Vector3<class_Vector3>` arc_to **)**
 
-.. container:: contribute
-
-	There is currently no description for this constructor. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Constructs a quaternion representing the shortest arc between two points on the surface of a sphere with a radius of ``1.0``.
 
 .. rst-class:: classref-item-separator
 

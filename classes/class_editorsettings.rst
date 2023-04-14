@@ -1171,7 +1171,7 @@ The modifier key that must be held to pan in the 3D editor.
 
 :ref:`bool<class_bool>` **editors/3d/navigation/warped_mouse_panning**
 
-If ``true``, warps the mouse around the 3D viewport while panning in the 3D editor. This makes it possible to pan over a large area without having to exit panning then mouse the mouse back constantly.
+If ``true``, warps the mouse around the 3D viewport while panning in the 3D editor. This makes it possible to pan over a large area without having to exit panning and adjust the mouse cursor.
 
 .. rst-class:: classref-item-separator
 
@@ -1485,7 +1485,7 @@ Controls whether the mouse wheel scroll zooms or pans in subeditors. The list of
 
 :ref:`bool<class_bool>` **editors/panning/warped_mouse_panning**
 
-If ``true``, warps the mouse around the 2D viewport while panning in the 2D editor. This makes it possible to pan over a large area without having to exit panning then mouse the mouse back constantly.
+If ``true``, warps the mouse around the 2D viewport while panning in the 2D editor. This makes it possible to pan over a large area without having to exit panning and adjust the mouse cursor.
 
 .. rst-class:: classref-item-separator
 
@@ -1995,7 +1995,7 @@ If ``true``, the mouse's additional side buttons will be usable to navigate in t
 
 :ref:`bool<class_bool>` **interface/editor/save_each_scene_on_quit**
 
-If ``true``, the editor will save all scenes when confirming the **Save** action when quitting the editor or quitting to the project list. If ``false``, the editor will ask to save each scene individually.
+If ``false``, the editor will save all scenes when confirming the **Save** action when quitting the editor or quitting to the project list. If ``true``, the editor will ask to save each scene individually.
 
 .. rst-class:: classref-item-separator
 
@@ -2533,7 +2533,7 @@ If ``true``, makes the caret blink according to :ref:`text_editor/appearance/car
 
 :ref:`float<class_float>` **text_editor/appearance/caret/caret_blink_interval**
 
-The interval at which to blink the caret (in seconds). See also :ref:`text_editor/appearance/caret/caret_blink<class_EditorSettings_property_text_editor/appearance/caret/caret_blink>`.
+The interval at which the caret will blink (in seconds). See also :ref:`text_editor/appearance/caret/caret_blink<class_EditorSettings_property_text_editor/appearance/caret/caret_blink>`.
 
 .. rst-class:: classref-item-separator
 
@@ -3646,7 +3646,7 @@ Erases the setting whose name is specified by ``property``.
 
 :ref:`PackedStringArray<class_PackedStringArray>` **get_changed_settings** **(** **)** |const|
 
-Gets an array of the settings which have been changed since the last save. Note that internally ``changed_settings`` is cleared after a successful save, so generally the most appropriate place to use this method is when processing :ref:`NOTIFICATION_EDITOR_SETTINGS_CHANGED<class_EditorSettings_constant_NOTIFICATION_EDITOR_SETTINGS_CHANGED>`
+Gets an array of the settings which have been changed since the last save. Note that internally ``changed_settings`` is cleared after a successful save, so generally the most appropriate place to use this method is when processing :ref:`NOTIFICATION_EDITOR_SETTINGS_CHANGED<class_EditorSettings_constant_NOTIFICATION_EDITOR_SETTINGS_CHANGED>`.
 
 .. rst-class:: classref-item-separator
 

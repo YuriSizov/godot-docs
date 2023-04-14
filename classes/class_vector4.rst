@@ -509,7 +509,7 @@ Returns ``true`` if this vector is finite, by calling :ref:`@GlobalScope.is_fini
 
 :ref:`bool<class_bool>` **is_normalized** **(** **)** |const|
 
-Returns ``true`` if the vector is normalized, i.e. its length is equal to 1.
+Returns ``true`` if the vector is normalized, i.e. its length is approximately equal to 1.
 
 .. rst-class:: classref-item-separator
 
@@ -595,7 +595,9 @@ Returns the axis of the vector's lowest value. See ``AXIS_*`` constants. If all 
 
 :ref:`Vector4<class_Vector4>` **normalized** **(** **)** |const|
 
-Returns the result of scaling the vector to unit length. Equivalent to ``v / v.length()``.
+Returns the result of scaling the vector to unit length. Equivalent to ``v / v.length()``. See also :ref:`is_normalized<class_Vector4_method_is_normalized>`.
+
+\ **Note:** This function may return incorrect values if the input vector length is near zero.
 
 .. rst-class:: classref-item-separator
 
