@@ -315,7 +315,7 @@ Constructs a **Vector3i** as a copy of the given **Vector3i**.
 
 :ref:`Vector3i<class_Vector3i>` **Vector3i** **(** :ref:`Vector3<class_Vector3>` from **)**
 
-Constructs a new **Vector3i** from :ref:`Vector3<class_Vector3>`. The floating point coordinates will be truncated.
+Constructs a new **Vector3i** from the given :ref:`Vector3<class_Vector3>` by truncating components' fractional parts (rounding towards zero). For a different behavior consider passing the result of :ref:`Vector3.ceil<class_Vector3_method_ceil>`, :ref:`Vector3.floor<class_Vector3_method_floor>` or :ref:`Vector3.round<class_Vector3_method_round>` to this constructor instead.
 
 .. rst-class:: classref-item-separator
 
