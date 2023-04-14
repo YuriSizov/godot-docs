@@ -61,5 +61,5 @@ jobs:
 
           # Configure the pull-request.
           title: 'classref: Sync with current ${{ env.engine_rev }} branch (${{ steps.engine.outputs.rev_hash }})'
-          body: 'Update Godot API online class reference to match the engine at `${{ env.engine_rev }}` #${{ steps.engine.outputs.rev_hash }}.'
+          body: 'Update Godot API online class reference to match the engine at ${{ steps.engine.outputs.rev_hash }} (`${{ env.engine_rev }}`).'
           labels: 'area:class reference,bug,enhancement'
