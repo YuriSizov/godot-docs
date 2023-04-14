@@ -736,6 +736,7 @@ Other objects
     class_lightmapperrd
     class_mainloop
     class_marshalls
+    class_meshconvexdecompositionsettings
     class_meshdatatool
     class_methodtweener
     class_mobilevrinterface

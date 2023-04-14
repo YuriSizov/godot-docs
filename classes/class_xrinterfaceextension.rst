@@ -58,6 +58,8 @@ Methods
    +--------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`PackedStringArray<class_PackedStringArray>`      | :ref:`_get_suggested_tracker_names<class_XRInterfaceExtension_method__get_suggested_tracker_names>` **(** **)** |virtual| |const|                                                                                                                                                                                                                                                                                                                                                     |
    +--------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Dictionary<class_Dictionary>`                    | :ref:`_get_system_info<class_XRInterfaceExtension_method__get_system_info>` **(** **)** |virtual| |const|                                                                                                                                                                                                                                                                                                                                                                             |
+   +--------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`TrackingStatus<enum_XRInterface_TrackingStatus>` | :ref:`_get_tracking_status<class_XRInterfaceExtension_method__get_tracking_status>` **(** **)** |virtual| |const|                                                                                                                                                                                                                                                                                                                                                                     |
    +--------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Transform3D<class_Transform3D>`                  | :ref:`_get_transform_for_view<class_XRInterfaceExtension_method__get_transform_for_view>` **(** :ref:`int<class_int>` view, :ref:`Transform3D<class_Transform3D>` cam_transform **)** |virtual|                                                                                                                                                                                                                                                                                       |
@@ -273,6 +275,18 @@ Returns a :ref:`PackedStringArray<class_PackedStringArray>` with pose names conf
 :ref:`PackedStringArray<class_PackedStringArray>` **_get_suggested_tracker_names** **(** **)** |virtual| |const|
 
 Returns a :ref:`PackedStringArray<class_PackedStringArray>` with tracker names configured by this interface. Note that user configuration can override this list.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_XRInterfaceExtension_method__get_system_info:
+
+.. rst-class:: classref-method
+
+:ref:`Dictionary<class_Dictionary>` **_get_system_info** **(** **)** |virtual| |const|
+
+Returns a :ref:`Dictionary<class_Dictionary>` with system informationr elated to this interface.
 
 .. rst-class:: classref-item-separator
 
