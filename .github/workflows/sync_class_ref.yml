@@ -56,8 +56,8 @@ jobs:
           delete-branch: true
 
           # Configure the commit author.
-          author: 'Godot Organization <>'
-          committer: 'Godot Organization <>'
+          author: 'Godot Organization'
+          committer: 'Godot Organization'
 
           # Configure the pull-request.
           title: 'classref: Sync with current ${{ env.engine_rev }} branch (${{ steps.engine.outputs.rev_hash }})'
