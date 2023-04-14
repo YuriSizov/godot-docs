@@ -860,7 +860,7 @@ Returns whether or not the specified navigation layer of the TileSet navigation 
 
 :ref:`int<class_int>` **get_navigation_layer_layers** **(** :ref:`int<class_int>` layer_index **)** |const|
 
-Returns the navigation layers (as in the Navigation server) of the gives TileSet navigation layer.
+Returns the navigation layers (as in the Navigation server) of the given TileSet navigation layer.
 
 .. rst-class:: classref-item-separator
 
@@ -1450,7 +1450,7 @@ Based on ``value``, enables or disables the specified navigation layer of the Ti
 
 void **set_navigation_layer_layers** **(** :ref:`int<class_int>` layer_index, :ref:`int<class_int>` layers **)**
 
-Sets the navigation layers (as in the navigation server) for navigation regions is the given TileSet navigation layer.
+Sets the navigation layers (as in the navigation server) for navigation regions in the given TileSet navigation layer.
 
 .. rst-class:: classref-item-separator
 
@@ -1474,7 +1474,7 @@ Sets the occlusion layer (as in the rendering server) for occluders in the given
 
 void **set_occlusion_layer_sdf_collision** **(** :ref:`int<class_int>` layer_index, :ref:`bool<class_bool>` sdf_collision **)**
 
-Enables or disables sdf collision for occluders in the given TileSet occlusion layer.
+Enables or disables SDF collision for occluders in the given TileSet occlusion layer.
 
 .. rst-class:: classref-item-separator
 

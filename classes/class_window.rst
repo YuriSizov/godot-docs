@@ -667,7 +667,7 @@ The content can be expanded horizontally. Scaling vertically will result in keep
 
 :ref:`ContentScaleAspect<enum_Window_ContentScaleAspect>` **CONTENT_SCALE_ASPECT_EXPAND** = ``4``
 
-The content's aspect will be preserved. If the target size has different aspect from the base one, the content will stay in the to-left corner and add an extra visible area in the stretched space.
+The content's aspect will be preserved. If the target size has different aspect from the base one, the content will stay in the top-left corner and add an extra visible area in the stretched space.
 
 .. rst-class:: classref-item-separator
 
@@ -1054,7 +1054,7 @@ Set's the window's current mode.
 - void **set_flag** **(** :ref:`Flags<enum_Window_Flags>` flag, :ref:`bool<class_bool>` enabled **)**
 - :ref:`bool<class_bool>` **get_flag** **(** :ref:`Flags<enum_Window_Flags>` flag **)** |const|
 
-If ``true``, all mouse event as passed to the underlying window of the same application. See also :ref:`mouse_passthrough_polygon<class_Window_property_mouse_passthrough_polygon>`.
+If ``true``, all mouse events will be passed to the underlying window of the same application. See also :ref:`mouse_passthrough_polygon<class_Window_property_mouse_passthrough_polygon>`.
 
 \ **Note:** This property is implemented on Linux (X11), macOS and Windows.
 
@@ -1229,7 +1229,7 @@ The window's title. If the **Window** is non-embedded, title styles set in :ref:
 - void **set_transient** **(** :ref:`bool<class_bool>` value **)**
 - :ref:`bool<class_bool>` **is_transient** **(** **)**
 
-If ``true``, the **Window** is transient, i.e. it's considered a child of another **Window**. Transient window is will be destroyed with its transient parent and will return focus to their parent when closed. The transient window is displayed on top of a non-exclusive full-screen parent window. Transient windows can't enter full-screen mode.
+If ``true``, the **Window** is transient, i.e. it's considered a child of another **Window**. The transient window will be destroyed with its transient parent and will return focus to their parent when closed. The transient window is displayed on top of a non-exclusive full-screen parent window. Transient windows can't enter full-screen mode.
 
 Note that behavior might be different depending on the platform.
 
