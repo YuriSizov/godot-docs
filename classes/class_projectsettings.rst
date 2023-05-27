@@ -83,6 +83,8 @@ Properties
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`                       | :ref:`application/config/windows_native_icon<class_ProjectSettings_property_application/config/windows_native_icon>`                                                                                       | ``""``                                                                                           |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                           | :ref:`application/run/delta_smoothing<class_ProjectSettings_property_application/run/delta_smoothing>`                                                                                                     | ``true``                                                                                         |
+   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                           | :ref:`application/run/disable_stderr<class_ProjectSettings_property_application/run/disable_stderr>`                                                                                                       | ``false``                                                                                        |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                           | :ref:`application/run/disable_stdout<class_ProjectSettings_property_application/run/disable_stdout>`                                                                                                       | ``false``                                                                                        |
@@ -124,6 +126,8 @@ Properties
    | :ref:`float<class_float>`                         | :ref:`audio/general/2d_panning_strength<class_ProjectSettings_property_audio/general/2d_panning_strength>`                                                                                                 | ``0.5``                                                                                          |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`float<class_float>`                         | :ref:`audio/general/3d_panning_strength<class_ProjectSettings_property_audio/general/3d_panning_strength>`                                                                                                 | ``0.5``                                                                                          |
+   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                           | :ref:`audio/general/text_to_speech<class_ProjectSettings_property_audio/general/text_to_speech>`                                                                                                           | ``false``                                                                                        |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                             | :ref:`audio/video/video_delay_compensation_ms<class_ProjectSettings_property_audio/video/video_delay_compensation_ms>`                                                                                     | ``0``                                                                                            |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
@@ -1529,6 +1533,8 @@ Methods
    +---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Error<enum_@GlobalScope_Error>` | :ref:`save_custom<class_ProjectSettings_method_save_custom>` **(** :ref:`String<class_String>` file **)**                                                                                           |
    +---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | void                                  | :ref:`set_as_basic<class_ProjectSettings_method_set_as_basic>` **(** :ref:`String<class_String>` name, :ref:`bool<class_bool>` basic **)**                                                          |
+   +---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                  | :ref:`set_initial_value<class_ProjectSettings_method_set_initial_value>` **(** :ref:`String<class_String>` name, :ref:`Variant<class_Variant>` value **)**                                          |
    +---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                  | :ref:`set_order<class_ProjectSettings_method_set_order>` **(** :ref:`String<class_String>` name, :ref:`int<class_int>` position **)**                                                               |
@@ -1774,6 +1780,22 @@ If ``false``, a non-hidden directory (``godot``) will be used instead.
 :ref:`String<class_String>` **application/config/windows_native_icon** = ``""``
 
 Icon set in ``.ico`` format used on Windows to set the game's icon. This is done automatically on start by calling :ref:`DisplayServer.set_native_icon<class_DisplayServer_method_set_native_icon>`.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_ProjectSettings_property_application/run/delta_smoothing:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **application/run/delta_smoothing** = ``true``
+
+Time samples for frame deltas are subject to random variation introduced by the platform, even when frames are displayed at regular intervals thanks to V-Sync. This can lead to jitter. Delta smoothing can often give a better result by filtering the input deltas to correct for minor fluctuations from the refresh rate.
+
+\ **Note:** Delta smoothing is only attempted when :ref:`display/window/vsync/vsync_mode<class_ProjectSettings_property_display/window/vsync/vsync_mode>` is set to ``enabled``, as it does not work well without V-Sync.
+
+It may take several seconds at a stable frame rate before the smoothing is initially activated. It will only be active on machines where performance is adequate to render frames at the refresh rate.
 
 .. rst-class:: classref-item-separator
 
@@ -2064,6 +2086,20 @@ The default value of ``0.5`` is tuned for headphones. When using speakers, you m
 The base strength of the panning effect for all :ref:`AudioStreamPlayer3D<class_AudioStreamPlayer3D>` nodes. The panning strength can be further scaled on each Node using :ref:`AudioStreamPlayer3D.panning_strength<class_AudioStreamPlayer3D_property_panning_strength>`. A value of ``0.0`` disables stereo panning entirely, leaving only volume attenuation in place. A value of ``1.0`` completely mutes one of the channels if the sound is located exactly to the left (or right) of the listener.
 
 The default value of ``0.5`` is tuned for headphones. When using speakers, you may find lower values to sound better as speakers have a lower stereo separation compared to headphones.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_ProjectSettings_property_audio/general/text_to_speech:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **audio/general/text_to_speech** = ``false``
+
+If ``true``, text-to-speech support is enabled, see :ref:`DisplayServer.tts_get_voices<class_DisplayServer_method_tts_get_voices>` and :ref:`DisplayServer.tts_speak<class_DisplayServer_method_tts_speak>`.
+
+\ **Note:** Enabling TTS can cause addition idle CPU usage and interfere with the sleep mode, so consider disabling it if TTS is not used.
 
 .. rst-class:: classref-item-separator
 
@@ -11045,13 +11081,25 @@ Saves the configuration to a custom file. The file extension must be ``.godot`` 
 
 ----
 
+.. _class_ProjectSettings_method_set_as_basic:
+
+.. rst-class:: classref-method
+
+void **set_as_basic** **(** :ref:`String<class_String>` name, :ref:`bool<class_bool>` basic **)**
+
+Defines if the specified setting is considered basic or advanced. Basic settings will always be shown in the project settings. Advanced settings will only be shown if the user enables the "Advanced Settings" option.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_ProjectSettings_method_set_initial_value:
 
 .. rst-class:: classref-method
 
 void **set_initial_value** **(** :ref:`String<class_String>` name, :ref:`Variant<class_Variant>` value **)**
 
-Sets the specified property's initial value. This is the value the property reverts to.
+Sets the specified setting's initial value. This is the value the setting reverts to.
 
 .. rst-class:: classref-item-separator
 
