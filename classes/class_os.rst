@@ -12,14 +12,14 @@ OS
 
 **Inherits:** :ref:`Object<class_Object>`
 
-Operating System functions.
+Provides access to common operating system functionalities.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Operating System functions. **OS** wraps the most common functionality to communicate with the host operating system, such as the video driver, delays, environment variables, execution of binaries, command line, etc.
+This class wraps the most common functionalities for communicating with the host operating system, such as the video driver, delays, environment variables, execution of binaries, command line, etc.
 
 \ **Note:** In Godot 4, **OS** functions related to window management were moved to the :ref:`DisplayServer<class_DisplayServer>` singleton.
 
@@ -38,6 +38,8 @@ Properties
 .. table::
    :widths: auto
 
+   +-------------------------+---------------------------------------------------------------------------------------------------+-----------+
+   | :ref:`bool<class_bool>` | :ref:`delta_smoothing<class_OS_property_delta_smoothing>`                                         | ``true``  |
    +-------------------------+---------------------------------------------------------------------------------------------------+-----------+
    | :ref:`bool<class_bool>` | :ref:`low_processor_usage_mode<class_OS_property_low_processor_usage_mode>`                       | ``false`` |
    +-------------------------+---------------------------------------------------------------------------------------------------+-----------+
@@ -291,6 +293,23 @@ Ringtones directory path.
 
 Property Descriptions
 ---------------------
+
+.. _class_OS_property_delta_smoothing:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **delta_smoothing** = ``true``
+
+.. rst-class:: classref-property-setget
+
+- void **set_delta_smoothing** **(** :ref:`bool<class_bool>` value **)**
+- :ref:`bool<class_bool>` **is_delta_smoothing_enabled** **(** **)**
+
+If ``true``, the engine filters the time delta measured between each frame, and attempts to compensate for random variation. This will only operate on systems where V-Sync is active.
+
+.. rst-class:: classref-item-separator
+
+----
 
 .. _class_OS_property_low_processor_usage_mode:
 
@@ -717,7 +736,7 @@ Returns the path to the current engine executable.
 
 With this function, you can get the list of dangerous permissions that have been granted to the Android application.
 
-\ **Note:** This method is implemented on Android.
+\ **Note:** This method is implemented only on Android.
 
 .. rst-class:: classref-item-separator
 
@@ -1346,7 +1365,7 @@ At the moment this function is only used by ``AudioDriverOpenSL`` to request per
 
 With this function, you can request dangerous permissions since normal permissions are automatically granted at install time in Android applications.
 
-\ **Note:** This method is implemented on Android.
+\ **Note:** This method is implemented only on Android.
 
 .. rst-class:: classref-item-separator
 

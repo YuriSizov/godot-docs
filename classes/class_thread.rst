@@ -23,6 +23,16 @@ A unit of execution in a process. Can run methods on :ref:`Object<class_Object>`
 
 \ **Note:** Breakpoints won't break on code if it's running in a thread. This is a current limitation of the GDScript debugger.
 
+\ **Warning:**\ 
+
+To ensure proper cleanup without crashes or deadlocks, when a **Thread**'s reference count reaches zero and it is therefore destroyed, the following conditions must be met:
+
+- It must not have any :ref:`Mutex<class_Mutex>` objects locked.
+
+- It must not be waiting on any :ref:`Semaphore<class_Semaphore>` objects.
+
+- :ref:`wait_to_finish<class_Thread_method_wait_to_finish>` should have been called on it.
+
 .. rst-class:: classref-introduction-group
 
 Tutorials
