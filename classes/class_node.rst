@@ -14,7 +14,7 @@ Node
 
 **Inherited By:** :ref:`AnimationPlayer<class_AnimationPlayer>`, :ref:`AnimationTree<class_AnimationTree>`, :ref:`AudioStreamPlayer<class_AudioStreamPlayer>`, :ref:`CanvasItem<class_CanvasItem>`, :ref:`CanvasLayer<class_CanvasLayer>`, :ref:`EditorFileSystem<class_EditorFileSystem>`, :ref:`EditorPlugin<class_EditorPlugin>`, :ref:`EditorResourcePreview<class_EditorResourcePreview>`, :ref:`HTTPRequest<class_HTTPRequest>`, :ref:`InstancePlaceholder<class_InstancePlaceholder>`, :ref:`MissingNode<class_MissingNode>`, :ref:`MultiplayerSpawner<class_MultiplayerSpawner>`, :ref:`MultiplayerSynchronizer<class_MultiplayerSynchronizer>`, :ref:`NavigationAgent2D<class_NavigationAgent2D>`, :ref:`NavigationAgent3D<class_NavigationAgent3D>`, :ref:`Node3D<class_Node3D>`, :ref:`ResourcePreloader<class_ResourcePreloader>`, :ref:`ShaderGlobalsOverride<class_ShaderGlobalsOverride>`, :ref:`SkeletonIK3D<class_SkeletonIK3D>`, :ref:`Timer<class_Timer>`, :ref:`Viewport<class_Viewport>`, :ref:`WorldEnvironment<class_WorldEnvironment>`
 
-Base class for all *scene* objects.
+Base class for all scene objects.
 
 .. rst-class:: classref-introduction-group
 
@@ -148,6 +148,8 @@ Methods
    | :ref:`StringName[]<class_StringName>`             | :ref:`get_groups<class_Node_method_get_groups>` **(** **)** |const|                                                                                                                                                            |
    +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                             | :ref:`get_index<class_Node_method_get_index>` **(** :ref:`bool<class_bool>` include_internal=false **)** |const|                                                                                                               |
+   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Window<class_Window>`                       | :ref:`get_last_exclusive_window<class_Node_method_get_last_exclusive_window>` **(** **)** |const|                                                                                                                              |
    +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                             | :ref:`get_multiplayer_authority<class_Node_method_get_multiplayer_authority>` **(** **)** |const|                                                                                                                              |
    +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1715,6 +1717,18 @@ Returns an array listing the groups that the node is a member of.
 Returns the node's order in the scene tree branch. For example, if called on the first child node the position is ``0``.
 
 If ``include_internal`` is ``false``, the index won't take internal children into account, i.e. first non-internal child will have index of 0 (see ``internal`` parameter in :ref:`add_child<class_Node_method_add_child>`).
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_Node_method_get_last_exclusive_window:
+
+.. rst-class:: classref-method
+
+:ref:`Window<class_Window>` **get_last_exclusive_window** **(** **)** |const|
+
+Returns the :ref:`Window<class_Window>` that contains this node, or the last exclusive child in a chain of windows starting with the one that contains this node.
 
 .. rst-class:: classref-item-separator
 
