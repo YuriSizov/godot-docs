@@ -12,14 +12,14 @@ ProjectSettings
 
 **Inherits:** :ref:`Object<class_Object>`
 
-Contains global variables accessible from everywhere.
+Stores globally-accessible variables.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Contains global variables accessible from everywhere. Use :ref:`get_setting<class_ProjectSettings_method_get_setting>`, :ref:`set_setting<class_ProjectSettings_method_set_setting>` or :ref:`has_setting<class_ProjectSettings_method_has_setting>` to access them. Variables stored in ``project.godot`` are also loaded into ProjectSettings, making this object very useful for reading custom game configuration options.
+Stores variables that can be accessed from everywhere. Use :ref:`get_setting<class_ProjectSettings_method_get_setting>`, :ref:`set_setting<class_ProjectSettings_method_set_setting>` or :ref:`has_setting<class_ProjectSettings_method_has_setting>` to access them. Variables stored in ``project.godot`` are also loaded into **ProjectSettings**, making this object very useful for reading custom game configuration options.
 
 When naming a Project Settings property, use the full path to the setting including the category. For example, ``"application/config/name"`` for the project name. Category and property names can be viewed in the Project Settings dialog.
 
@@ -83,6 +83,8 @@ Properties
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`                       | :ref:`application/config/windows_native_icon<class_ProjectSettings_property_application/config/windows_native_icon>`                                                                                       | ``""``                                                                                           |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                           | :ref:`application/run/delta_smoothing<class_ProjectSettings_property_application/run/delta_smoothing>`                                                                                                     | ``true``                                                                                         |
+   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                           | :ref:`application/run/disable_stderr<class_ProjectSettings_property_application/run/disable_stderr>`                                                                                                       | ``false``                                                                                        |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                           | :ref:`application/run/disable_stdout<class_ProjectSettings_property_application/run/disable_stdout>`                                                                                                       | ``false``                                                                                        |
@@ -124,6 +126,8 @@ Properties
    | :ref:`float<class_float>`                         | :ref:`audio/general/2d_panning_strength<class_ProjectSettings_property_audio/general/2d_panning_strength>`                                                                                                 | ``0.5``                                                                                          |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`float<class_float>`                         | :ref:`audio/general/3d_panning_strength<class_ProjectSettings_property_audio/general/3d_panning_strength>`                                                                                                 | ``0.5``                                                                                          |
+   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                           | :ref:`audio/general/text_to_speech<class_ProjectSettings_property_audio/general/text_to_speech>`                                                                                                           | ``false``                                                                                        |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                             | :ref:`audio/video/video_delay_compensation_ms<class_ProjectSettings_property_audio/video/video_delay_compensation_ms>`                                                                                     | ``0``                                                                                            |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
@@ -1411,6 +1415,8 @@ Properties
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`                       | :ref:`rendering/rendering_device/driver.windows<class_ProjectSettings_property_rendering/rendering_device/driver.windows>`                                                                                 | ``"vulkan"``                                                                                     |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
+   | :ref:`float<class_float>`                         | :ref:`rendering/rendering_device/pipeline_cache/save_chunk_size_mb<class_ProjectSettings_property_rendering/rendering_device/pipeline_cache/save_chunk_size_mb>`                                           | ``3.0``                                                                                          |
+   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                             | :ref:`rendering/rendering_device/staging_buffer/block_size_kb<class_ProjectSettings_property_rendering/rendering_device/staging_buffer/block_size_kb>`                                                     | ``256``                                                                                          |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                             | :ref:`rendering/rendering_device/staging_buffer/max_size_mb<class_ProjectSettings_property_rendering/rendering_device/staging_buffer/max_size_mb>`                                                         | ``128``                                                                                          |
@@ -1459,9 +1465,9 @@ Properties
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                           | :ref:`rendering/textures/lossless_compression/force_png<class_ProjectSettings_property_rendering/textures/lossless_compression/force_png>`                                                                 | ``false``                                                                                        |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                           | :ref:`rendering/textures/vram_compression/import_etc2_astc<class_ProjectSettings_property_rendering/textures/vram_compression/import_etc2_astc>`                                                           |                                                                                                  |
+   | :ref:`bool<class_bool>`                           | :ref:`rendering/textures/vram_compression/import_etc2_astc<class_ProjectSettings_property_rendering/textures/vram_compression/import_etc2_astc>`                                                           | ``false``                                                                                        |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                           | :ref:`rendering/textures/vram_compression/import_s3tc_bptc<class_ProjectSettings_property_rendering/textures/vram_compression/import_s3tc_bptc>`                                                           |                                                                                                  |
+   | :ref:`bool<class_bool>`                           | :ref:`rendering/textures/vram_compression/import_s3tc_bptc<class_ProjectSettings_property_rendering/textures/vram_compression/import_s3tc_bptc>`                                                           | ``true``                                                                                         |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                             | :ref:`rendering/textures/webp_compression/compression_method<class_ProjectSettings_property_rendering/textures/webp_compression/compression_method>`                                                       | ``2``                                                                                            |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
@@ -1528,6 +1534,10 @@ Methods
    | :ref:`Error<enum_@GlobalScope_Error>` | :ref:`save<class_ProjectSettings_method_save>` **(** **)**                                                                                                                                          |
    +---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Error<enum_@GlobalScope_Error>` | :ref:`save_custom<class_ProjectSettings_method_save_custom>` **(** :ref:`String<class_String>` file **)**                                                                                           |
+   +---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | void                                  | :ref:`set_as_basic<class_ProjectSettings_method_set_as_basic>` **(** :ref:`String<class_String>` name, :ref:`bool<class_bool>` basic **)**                                                          |
+   +---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | void                                  | :ref:`set_as_internal<class_ProjectSettings_method_set_as_internal>` **(** :ref:`String<class_String>` name, :ref:`bool<class_bool>` internal **)**                                                 |
    +---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                  | :ref:`set_initial_value<class_ProjectSettings_method_set_initial_value>` **(** :ref:`String<class_String>` name, :ref:`Variant<class_Variant>` value **)**                                          |
    +---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1665,7 +1675,7 @@ The project's description, displayed as a tooltip in the Project Manager when ho
 
 :ref:`String<class_String>` **application/config/icon** = ``""``
 
-Icon used for the project, set when project loads. Exporters will also use this icon when possible.
+Icon used for the project, set when project loads. Exporters will also use this icon as a fallback if necessary.
 
 .. rst-class:: classref-item-separator
 
@@ -1774,6 +1784,22 @@ If ``false``, a non-hidden directory (``godot``) will be used instead.
 :ref:`String<class_String>` **application/config/windows_native_icon** = ``""``
 
 Icon set in ``.ico`` format used on Windows to set the game's icon. This is done automatically on start by calling :ref:`DisplayServer.set_native_icon<class_DisplayServer_method_set_native_icon>`.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_ProjectSettings_property_application/run/delta_smoothing:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **application/run/delta_smoothing** = ``true``
+
+Time samples for frame deltas are subject to random variation introduced by the platform, even when frames are displayed at regular intervals thanks to V-Sync. This can lead to jitter. Delta smoothing can often give a better result by filtering the input deltas to correct for minor fluctuations from the refresh rate.
+
+\ **Note:** Delta smoothing is only attempted when :ref:`display/window/vsync/vsync_mode<class_ProjectSettings_property_display/window/vsync/vsync_mode>` is set to ``enabled``, as it does not work well without V-Sync.
+
+It may take several seconds at a stable frame rate before the smoothing is initially activated. It will only be active on machines where performance is adequate to render frames at the refresh rate.
 
 .. rst-class:: classref-item-separator
 
@@ -2064,6 +2090,20 @@ The default value of ``0.5`` is tuned for headphones. When using speakers, you m
 The base strength of the panning effect for all :ref:`AudioStreamPlayer3D<class_AudioStreamPlayer3D>` nodes. The panning strength can be further scaled on each Node using :ref:`AudioStreamPlayer3D.panning_strength<class_AudioStreamPlayer3D_property_panning_strength>`. A value of ``0.0`` disables stereo panning entirely, leaving only volume attenuation in place. A value of ``1.0`` completely mutes one of the channels if the sound is located exactly to the left (or right) of the listener.
 
 The default value of ``0.5`` is tuned for headphones. When using speakers, you may find lower values to sound better as speakers have a lower stereo separation compared to headphones.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_ProjectSettings_property_audio/general/text_to_speech:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **audio/general/text_to_speech** = ``false``
+
+If ``true``, text-to-speech support is enabled, see :ref:`DisplayServer.tts_get_voices<class_DisplayServer_method_tts_get_voices>` and :ref:`DisplayServer.tts_speak<class_DisplayServer_method_tts_speak>`.
+
+\ **Note:** Enabling TTS can cause addition idle CPU usage and interfere with the sleep mode, so consider disabling it if TTS is not used.
 
 .. rst-class:: classref-item-separator
 
@@ -3515,7 +3555,7 @@ Main window content is expanded to the full size of the window. Unlike a borderl
 
 :ref:`Vector2i<class_Vector2i>` **display/window/size/initial_position** = ``Vector2i(0, 0)``
 
-Main window initial position (in virtual desktop coordinates), this settings is used only if :ref:`display/window/size/initial_position_type<class_ProjectSettings_property_display/window/size/initial_position_type>` is set to "Absolute" (``0``).
+Main window initial position (in virtual desktop coordinates), this setting is used only if :ref:`display/window/size/initial_position_type<class_ProjectSettings_property_display/window/size/initial_position_type>` is set to "Absolute" (``0``).
 
 .. rst-class:: classref-item-separator
 
@@ -3545,7 +3585,7 @@ Main window initial position.
 
 :ref:`int<class_int>` **display/window/size/initial_screen** = ``0``
 
-Main window initial screen, this settings is used only if :ref:`display/window/size/initial_position_type<class_ProjectSettings_property_display/window/size/initial_position_type>` is set to "Other Screen Center" (``2``).
+Main window initial screen, this setting is used only if :ref:`display/window/size/initial_position_type<class_ProjectSettings_property_display/window/size/initial_position_type>` is set to "Other Screen Center" (``2``).
 
 .. rst-class:: classref-item-separator
 
@@ -3677,9 +3717,13 @@ On desktop platforms, overrides the game's initial window width. See also :ref:`
 
 :ref:`String<class_String>` **display/window/stretch/mode** = ``"disabled"``
 
-.. container:: contribute
+Defines how the base size is stretched to fit the resolution of the window or screen.
 
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+\ **"disabled"**: No stretching happens. One unit in the scene corresponds to one pixel on the screen. In this mode, :ref:`display/window/stretch/aspect<class_ProjectSettings_property_display/window/stretch/aspect>` has no effect. Recommended for non-game applications.
+
+\ **"canvas_items"**: The base size specified in width and height in the project settings is stretched to cover the whole screen (taking :ref:`display/window/stretch/aspect<class_ProjectSettings_property_display/window/stretch/aspect>` into account). This means that everything is rendered directly at the target resolution. 3D is unaffected, while in 2D, there is no longer a 1:1 correspondence between sprite pixels and screen pixels, which may result in scaling artifacts. Recommended for most games that don't use a pixel art aesthetic, although it is possible to use this stretch mode for pixel art games too (especially in 3D).
+
+\ **"viewport"**: The size of the root :ref:`Viewport<class_Viewport>` is set precisely to the base size specified in the Project Settings' Display section. The scene is rendered to this viewport first. Finally, this viewport is scaled to fit the screen (taking :ref:`display/window/stretch/aspect<class_ProjectSettings_property_display/window/stretch/aspect>` into account). Recommended for games that use a pixel art aesthetic.
 
 .. rst-class:: classref-item-separator
 
@@ -10221,6 +10265,18 @@ Windows override for :ref:`rendering/rendering_device/driver<class_ProjectSettin
 
 ----
 
+.. _class_ProjectSettings_property_rendering/rendering_device/pipeline_cache/save_chunk_size_mb:
+
+.. rst-class:: classref-property
+
+:ref:`float<class_float>` **rendering/rendering_device/pipeline_cache/save_chunk_size_mb** = ``3.0``
+
+Determines at which interval pipeline cache is saved to disk. The lower the value, the more often it is saved.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_ProjectSettings_property_rendering/rendering_device/staging_buffer/block_size_kb:
 
 .. rst-class:: classref-property
@@ -10549,9 +10605,9 @@ If ``true``, the texture importer will import lossless textures using the PNG fo
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **rendering/textures/vram_compression/import_etc2_astc**
+:ref:`bool<class_bool>` **rendering/textures/vram_compression/import_etc2_astc** = ``false``
 
-If ``true``, the texture importer will import VRAM-compressed textures using the Ericsson Texture Compression 2 algorithm for lower quality textures and normalmaps and Adaptable Scalable Texture Compression algorithm for high quality textures (in 4x4 block size).
+If ``true``, the texture importer will import VRAM-compressed textures using the Ericsson Texture Compression 2 algorithm for lower quality textures and normal maps and Adaptable Scalable Texture Compression algorithm for high quality textures (in 4x4 block size).
 
 \ **Note:** Changing this setting does *not* impact textures that were already imported before. To make this setting apply to textures that were already imported, exit the editor, remove the ``.godot/imported/`` folder located inside the project folder then restart the editor (see :ref:`application/config/use_hidden_project_data_directory<class_ProjectSettings_property_application/config/use_hidden_project_data_directory>`).
 
@@ -10563,7 +10619,7 @@ If ``true``, the texture importer will import VRAM-compressed textures using the
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **rendering/textures/vram_compression/import_s3tc_bptc**
+:ref:`bool<class_bool>` **rendering/textures/vram_compression/import_s3tc_bptc** = ``true``
 
 If ``true``, the texture importer will import VRAM-compressed textures using the S3 Texture Compression algorithm (DXT1-5) for lower quality textures and the BPTC algorithm (BC6H and BC7) for high quality textures. This algorithm is only supported on PC desktop platforms and consoles.
 
@@ -11045,13 +11101,37 @@ Saves the configuration to a custom file. The file extension must be ``.godot`` 
 
 ----
 
+.. _class_ProjectSettings_method_set_as_basic:
+
+.. rst-class:: classref-method
+
+void **set_as_basic** **(** :ref:`String<class_String>` name, :ref:`bool<class_bool>` basic **)**
+
+Defines if the specified setting is considered basic or advanced. Basic settings will always be shown in the project settings. Advanced settings will only be shown if the user enables the "Advanced Settings" option.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_ProjectSettings_method_set_as_internal:
+
+.. rst-class:: classref-method
+
+void **set_as_internal** **(** :ref:`String<class_String>` name, :ref:`bool<class_bool>` internal **)**
+
+Defines if the specified setting is considered internal. An internal setting won't show up in the Project Settings dialog. This is mostly useful for addons that need to store their own internal settings without exposing them directly to the user.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_ProjectSettings_method_set_initial_value:
 
 .. rst-class:: classref-method
 
 void **set_initial_value** **(** :ref:`String<class_String>` name, :ref:`Variant<class_Variant>` value **)**
 
-Sets the specified property's initial value. This is the value the property reverts to.
+Sets the specified setting's initial value. This is the value the setting reverts to.
 
 .. rst-class:: classref-item-separator
 
