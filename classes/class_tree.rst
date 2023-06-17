@@ -12,16 +12,16 @@ Tree
 
 **Inherits:** :ref:`Control<class_Control>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Control to show a tree of items.
+A control used to show a set of internal :ref:`TreeItem<class_TreeItem>`\ s in a hierarchical structure.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-This shows a tree of items that can be selected, expanded and collapsed. The tree can have multiple columns with custom controls like text editing, buttons and popups. It can be useful for structured displays and interactions.
+A control used to show a set of internal :ref:`TreeItem<class_TreeItem>`\ s in a hierarchical structure. The tree items can be selected, expanded and collapsed. The tree can have multiple columns with custom controls like :ref:`LineEdit<class_LineEdit>`\ s, buttons and popups. It can be useful for structured displays and interactions.
 
-Trees are built via code, using :ref:`TreeItem<class_TreeItem>` objects to create the structure. They have a single root but multiple roots can be simulated if a dummy hidden root is added.
+Trees are built via code, using :ref:`TreeItem<class_TreeItem>` objects to create the structure. They have a single root, but multiple roots can be simulated with :ref:`hide_root<class_Tree_property_hide_root>`:
 
 
 .. tabs::
@@ -1938,3 +1938,4 @@ Default :ref:`StyleBox<class_StyleBox>` for the title button.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

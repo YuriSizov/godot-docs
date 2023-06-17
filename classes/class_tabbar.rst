@@ -12,14 +12,14 @@ TabBar
 
 **Inherits:** :ref:`Control<class_Control>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Tab bar control.
+A control that provides a horizontal bar with tabs.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Simple tabs control, similar to :ref:`TabContainer<class_TabContainer>` but is only in charge of drawing tabs, not interacting with children.
+A control that provides a horizontal bar with tabs. Similar to :ref:`TabContainer<class_TabContainer>` but is only in charge of drawing tabs, not interacting with children.
 
 .. rst-class:: classref-reftable-group
 
@@ -1204,3 +1204,4 @@ The style of the other, unselected tabs.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

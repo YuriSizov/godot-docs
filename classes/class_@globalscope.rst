@@ -2823,7 +2823,7 @@ Enum value which doesn't correspond to any MIDI message. This is used to initial
 
 :ref:`MIDIMessage<enum_@GlobalScope_MIDIMessage>` **MIDI_MESSAGE_NOTE_OFF** = ``8``
 
-MIDI note OFF message. See the documentation of :ref:`InputEventMIDI<class_InputEventMIDI>` for information of how to use MIDI inputs.
+MIDI note OFF message. Not all MIDI devices send this event; some send :ref:`MIDI_MESSAGE_NOTE_ON<class_@GlobalScope_constant_MIDI_MESSAGE_NOTE_ON>` with zero velocity instead. See the documentation of :ref:`InputEventMIDI<class_InputEventMIDI>` for information of how to use MIDI inputs.
 
 .. _class_@GlobalScope_constant_MIDI_MESSAGE_NOTE_ON:
 
@@ -2831,7 +2831,7 @@ MIDI note OFF message. See the documentation of :ref:`InputEventMIDI<class_Input
 
 :ref:`MIDIMessage<enum_@GlobalScope_MIDIMessage>` **MIDI_MESSAGE_NOTE_ON** = ``9``
 
-MIDI note ON message. See the documentation of :ref:`InputEventMIDI<class_InputEventMIDI>` for information of how to use MIDI inputs.
+MIDI note ON message. Some MIDI devices send this event with velocity zero instead of :ref:`MIDI_MESSAGE_NOTE_OFF<class_@GlobalScope_constant_MIDI_MESSAGE_NOTE_OFF>`, but implementations vary. See the documentation of :ref:`InputEventMIDI<class_InputEventMIDI>` for information of how to use MIDI inputs.
 
 .. _class_@GlobalScope_constant_MIDI_MESSAGE_AFTERTOUCH:
 
@@ -3982,7 +3982,7 @@ An export preset property with this flag contains confidential information and i
 
 :ref:`PropertyUsageFlags<enum_@GlobalScope_PropertyUsageFlags>` **PROPERTY_USAGE_DEFAULT** = ``6``
 
-Default usage (storage, editor and network).
+Default usage (storage and editor).
 
 .. _class_@GlobalScope_constant_PROPERTY_USAGE_NO_EDITOR:
 
@@ -3990,7 +3990,7 @@ Default usage (storage, editor and network).
 
 :ref:`PropertyUsageFlags<enum_@GlobalScope_PropertyUsageFlags>` **PROPERTY_USAGE_NO_EDITOR** = ``2``
 
-Default usage but without showing the property in the editor (storage, network).
+Default usage but without showing the property in the editor (storage).
 
 .. rst-class:: classref-item-separator
 
@@ -5303,7 +5303,7 @@ A type-safe version of :ref:`ceil<class_@GlobalScope_method_ceil>`, returning an
 
 :ref:`Variant<class_Variant>` **clamp** **(** :ref:`Variant<class_Variant>` value, :ref:`Variant<class_Variant>` min, :ref:`Variant<class_Variant>` max **)**
 
-Clamps the ``value``, returning a :ref:`Variant<class_Variant>` not less than ``min`` and not more than ``max``. Supported types: :ref:`int<class_int>`, :ref:`float<class_float>`, :ref:`Vector2<class_Vector2>`, :ref:`Vector2i<class_Vector2i>`, :ref:`Vector3<class_Vector3>`, :ref:`Vector3i<class_Vector3i>`, :ref:`Vector4<class_Vector4>`, :ref:`Vector4i<class_Vector4i>`.
+Clamps the ``value``, returning a :ref:`Variant<class_Variant>` not less than ``min`` and not more than ``max``. Any values that can be compared with the less than and greater than operators will work.
 
 ::
 
@@ -5325,7 +5325,7 @@ Clamps the ``value``, returning a :ref:`Variant<class_Variant>` not less than ``
     var f = clamp(Vector3i(-7, -8, -9), Vector3i(-1, 2, 3), Vector3i(-4, -5, -6))
     # f is (-4, -5, -6)
 
-\ **Note:** For better type safety, use :ref:`clampf<class_@GlobalScope_method_clampf>`, :ref:`clampi<class_@GlobalScope_method_clampi>`, :ref:`Vector2.clamp<class_Vector2_method_clamp>`, :ref:`Vector2i.clamp<class_Vector2i_method_clamp>`, :ref:`Vector3.clamp<class_Vector3_method_clamp>`, :ref:`Vector3i.clamp<class_Vector3i_method_clamp>`, :ref:`Vector4.clamp<class_Vector4_method_clamp>`, or :ref:`Vector4i.clamp<class_Vector4i_method_clamp>`.
+\ **Note:** For better type safety, use :ref:`clampf<class_@GlobalScope_method_clampf>`, :ref:`clampi<class_@GlobalScope_method_clampi>`, :ref:`Vector2.clamp<class_Vector2_method_clamp>`, :ref:`Vector2i.clamp<class_Vector2i_method_clamp>`, :ref:`Vector3.clamp<class_Vector3_method_clamp>`, :ref:`Vector3i.clamp<class_Vector3i_method_clamp>`, :ref:`Vector4.clamp<class_Vector4_method_clamp>`, :ref:`Vector4i.clamp<class_Vector4i_method_clamp>`, or :ref:`Color.clamp<class_Color_method_clamp>`.
 
 .. rst-class:: classref-item-separator
 
@@ -6075,7 +6075,7 @@ Returns the minimum of two :ref:`int<class_int>` values.
 
 :ref:`float<class_float>` **move_toward** **(** :ref:`float<class_float>` from, :ref:`float<class_float>` to, :ref:`float<class_float>` delta **)**
 
-Moves ``from`` toward ``to`` by the ``delta`` value.
+Moves ``from`` toward ``to`` by the ``delta`` amount. Will not go past ``to``.
 
 Use a negative ``delta`` value to move away.
 
@@ -6083,6 +6083,7 @@ Use a negative ``delta`` value to move away.
 
     move_toward(5, 10, 4)    # Returns 9
     move_toward(10, 5, 4)    # Returns 6
+    move_toward(5, 10, 9)    # Returns 10
     move_toward(10, 5, -1.5) # Returns 11.5
 
 .. rst-class:: classref-item-separator
@@ -6230,7 +6231,7 @@ The following BBCode tags are supported: ``b``, ``i``, ``u``, ``s``, ``indent``,
 
 Color tags only support the following named colors: ``black``, ``red``, ``green``, ``yellow``, ``blue``, ``magenta``, ``pink``, ``purple``, ``cyan``, ``white``, ``orange``, ``gray``. Hexadecimal color codes are not supported.
 
-URL tags only support URLs wrapped by an URL tag, not URLs with a different title.
+URL tags only support URLs wrapped by a URL tag, not URLs with a different title.
 
 When printing to standard output, the supported subset of BBCode is converted to ANSI escape codes for the terminal emulator to display. Support for ANSI escape codes varies across terminal emulators, especially for italic and strikethrough. In standard output, ``code`` is represented with faint text but without any font change. Unsupported tags are left as-is in standard output.
 
@@ -7206,3 +7207,4 @@ Wraps the integer ``value`` between ``min`` and ``max``. Can be used for creatin
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

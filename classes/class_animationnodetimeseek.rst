@@ -19,7 +19,7 @@ A time-seeking animation node used in :ref:`AnimationTree<class_AnimationTree>`.
 Description
 -----------
 
-This node can be used to cause a seek command to happen to any sub-children of the animation graph. Use this node type to play an :ref:`Animation<class_Animation>` from the start or a certain playback position inside the :ref:`AnimationNodeBlendTree<class_AnimationNodeBlendTree>`.
+This animation node can be used to cause a seek command to happen to any sub-children of the animation graph. Use to play an :ref:`Animation<class_Animation>` from the start or a certain playback position inside the :ref:`AnimationNodeBlendTree<class_AnimationNodeBlendTree>`.
 
 After setting the time and changing the animation playback, the time seek node automatically goes into sleep mode on the next process frame by setting its ``seek_request`` value to ``-1.0``.
 
@@ -61,3 +61,4 @@ Tutorials
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

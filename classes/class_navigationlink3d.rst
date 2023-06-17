@@ -12,14 +12,14 @@ NavigationLink3D
 
 **Inherits:** :ref:`Node3D<class_Node3D>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Creates a link between two positions that :ref:`NavigationServer3D<class_NavigationServer3D>` can route agents through.
+A link between two positions on :ref:`NavigationRegion3D<class_NavigationRegion3D>`\ s that agents can be routed through.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Creates a link between two positions that :ref:`NavigationServer3D<class_NavigationServer3D>` can route agents through. Links can be used to express navigation methods that aren't just traveling along the surface of the navigation mesh, like zip-lines, teleporters, or jumping across gaps.
+A link between two positions on :ref:`NavigationRegion3D<class_NavigationRegion3D>`\ s that agents can be routed through. These positions can be on the same :ref:`NavigationRegion3D<class_NavigationRegion3D>` or on two different ones. Links are useful to express navigation methods other than traveling along the surface of the navigation mesh, such as ziplines, teleporters, or gaps that can be jumped across.
 
 .. rst-class:: classref-introduction-group
 
@@ -289,3 +289,4 @@ Based on ``value``, enables or disables the specified layer in the :ref:`navigat
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
