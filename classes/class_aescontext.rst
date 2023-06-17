@@ -12,14 +12,14 @@ AESContext
 
 **Inherits:** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-Interface to low level AES encryption features.
+Provides access to AES encryption/decryption of raw data.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-This class provides access to AES encryption/decryption of raw data. Both AES-ECB and AES-CBC mode are supported.
+This class holds the context information required for encryption and decryption operations with AES (Advanced Encryption Standard). Both AES-ECB and AES-CBC modes are supported.
 
 
 .. tabs::
@@ -232,3 +232,4 @@ Run the desired operation for this AES context. Will return a :ref:`PackedByteAr
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

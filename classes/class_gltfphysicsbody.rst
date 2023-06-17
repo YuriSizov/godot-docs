@@ -36,17 +36,17 @@ Properties
 .. table::
    :widths: auto
 
-   +-------------------------------+--------------------------------------------------------------------------+----------------------+
-   | :ref:`Vector3<class_Vector3>` | :ref:`angular_velocity<class_GLTFPhysicsBody_property_angular_velocity>` | ``Vector3(0, 0, 0)`` |
-   +-------------------------------+--------------------------------------------------------------------------+----------------------+
-   | :ref:`String<class_String>`   | :ref:`body_type<class_GLTFPhysicsBody_property_body_type>`               | ``"static"``         |
-   +-------------------------------+--------------------------------------------------------------------------+----------------------+
-   | :ref:`Vector3<class_Vector3>` | :ref:`inertia<class_GLTFPhysicsBody_property_inertia>`                   | ``Vector3(0, 0, 0)`` |
-   +-------------------------------+--------------------------------------------------------------------------+----------------------+
-   | :ref:`Vector3<class_Vector3>` | :ref:`linear_velocity<class_GLTFPhysicsBody_property_linear_velocity>`   | ``Vector3(0, 0, 0)`` |
-   +-------------------------------+--------------------------------------------------------------------------+----------------------+
-   | :ref:`float<class_float>`     | :ref:`mass<class_GLTFPhysicsBody_property_mass>`                         | ``1.0``              |
-   +-------------------------------+--------------------------------------------------------------------------+----------------------+
+   +-------------------------------+--------------------------------------------------------------------------+--------------------------------------+
+   | :ref:`Vector3<class_Vector3>` | :ref:`angular_velocity<class_GLTFPhysicsBody_property_angular_velocity>` | ``Vector3(0, 0, 0)``                 |
+   +-------------------------------+--------------------------------------------------------------------------+--------------------------------------+
+   | :ref:`String<class_String>`   | :ref:`body_type<class_GLTFPhysicsBody_property_body_type>`               | ``"static"``                         |
+   +-------------------------------+--------------------------------------------------------------------------+--------------------------------------+
+   | :ref:`Basis<class_Basis>`     | :ref:`inertia_tensor<class_GLTFPhysicsBody_property_inertia_tensor>`     | ``Basis(0, 0, 0, 0, 0, 0, 0, 0, 0)`` |
+   +-------------------------------+--------------------------------------------------------------------------+--------------------------------------+
+   | :ref:`Vector3<class_Vector3>` | :ref:`linear_velocity<class_GLTFPhysicsBody_property_linear_velocity>`   | ``Vector3(0, 0, 0)``                 |
+   +-------------------------------+--------------------------------------------------------------------------+--------------------------------------+
+   | :ref:`float<class_float>`     | :ref:`mass<class_GLTFPhysicsBody_property_mass>`                         | ``1.0``                              |
+   +-------------------------------+--------------------------------------------------------------------------+--------------------------------------+
 
 .. rst-class:: classref-reftable-group
 
@@ -109,20 +109,20 @@ The type of the body. Valid values are "static", "kinematic", "character", "rigi
 
 ----
 
-.. _class_GLTFPhysicsBody_property_inertia:
+.. _class_GLTFPhysicsBody_property_inertia_tensor:
 
 .. rst-class:: classref-property
 
-:ref:`Vector3<class_Vector3>` **inertia** = ``Vector3(0, 0, 0)``
+:ref:`Basis<class_Basis>` **inertia_tensor** = ``Basis(0, 0, 0, 0, 0, 0, 0, 0, 0)``
 
 .. rst-class:: classref-property-setget
 
-- void **set_inertia** **(** :ref:`Vector3<class_Vector3>` value **)**
-- :ref:`Vector3<class_Vector3>` **get_inertia** **(** **)**
+- void **set_inertia_tensor** **(** :ref:`Basis<class_Basis>` value **)**
+- :ref:`Basis<class_Basis>` **get_inertia_tensor** **(** **)**
 
-The principle axes of the inertia tensor of the physics body, in kilogram meter squared (kg⋅m²). This is only used when the body type is "rigid" or "vehicle".
+The inertia tensor of the physics body, in kilogram meter squared (kg⋅m²). This is only used when the body type is "rigid" or "vehicle".
 
-This is written to and read from the GLTF file as a 3x3 matrix, but is exposed as a Vector3 since Godot only supports principal axis inertia values. When converted to a Godot :ref:`RigidBody3D<class_RigidBody3D>` node, if this value is zero, then the inertia will be calculated automatically.
+When converted to a Godot :ref:`RigidBody3D<class_RigidBody3D>` node, if this value is zero, then the inertia will be calculated automatically.
 
 .. rst-class:: classref-item-separator
 
@@ -217,3 +217,4 @@ Converts this GLTFPhysicsBody instance into a Godot :ref:`CollisionObject3D<clas
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

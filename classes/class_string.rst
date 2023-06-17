@@ -10,7 +10,7 @@
 String
 ======
 
-Built-in string Variant type.
+A built-in type for strings.
 
 .. rst-class:: classref-introduction-group
 
@@ -21,7 +21,7 @@ This is the built-in string Variant type (and the one used by GDScript). Strings
 
 Some string methods have corresponding variations. Variations suffixed with ``n`` (:ref:`countn<class_String_method_countn>`, :ref:`findn<class_String_method_findn>`, :ref:`replacen<class_String_method_replacen>`, etc.) are **case-insensitive** (they make no distinction between uppercase and lowercase letters). Method variations prefixed with ``r`` (:ref:`rfind<class_String_method_rfind>`, :ref:`rsplit<class_String_method_rsplit>`, etc.) are reversed, and start from the end of the string, instead of the beginning.
 
-\ **Note:** In a boolean context, a string will evaluate to ``false`` if it is empty (``""``). Otherwise, a string will always evaluate to ``true``.
+\ **Note:** In a boolean context, a string will evaluate to ``false`` if it is empty (``""``). Otherwise, a string will always evaluate to ``true``. The ``not`` operator cannot be used. Instead, :ref:`is_empty<class_String_method_is_empty>` should be used to check for empty strings.
 
 .. rst-class:: classref-introduction-group
 
@@ -823,7 +823,7 @@ Decodes a hexadecimal string as a :ref:`PackedByteArray<class_PackedByteArray>`.
  .. code-tab:: csharp
 
     var text = "hello world";
-    var encoded = text.ToUtf8Buffer().HexEncode(); # outputs "68656c6c6f20776f726c64"
+    var encoded = text.ToUtf8Buffer().HexEncode(); // outputs "68656c6c6f20776f726c64"
     GD.Print(buf.HexDecode().GetStringFromUtf8());
 
 
@@ -2211,3 +2211,4 @@ Returns a new **String** that only contains the character at ``index``. Indices 
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

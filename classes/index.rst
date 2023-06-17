@@ -287,6 +287,7 @@ Resources
     class_animationnodestatemachine
     class_animationnodestatemachineplayback
     class_animationnodestatemachinetransition
+    class_animationnodesub2
     class_animationnodesync
     class_animationnodetimescale
     class_animationnodetimeseek
@@ -436,6 +437,7 @@ Resources
     class_missingresource
     class_multimesh
     class_navigationmesh
+    class_navigationmeshsourcegeometrydata3d
     class_navigationpolygon
     class_noise
     class_noisetexture2d

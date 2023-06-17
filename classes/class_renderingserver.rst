@@ -537,7 +537,7 @@ Methods
    +----------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                                                             | :ref:`mesh_add_surface<class_RenderingServer_method_mesh_add_surface>` **(** :ref:`RID<class_RID>` mesh, :ref:`Dictionary<class_Dictionary>` surface **)**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
    +----------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                                                             | :ref:`mesh_add_surface_from_arrays<class_RenderingServer_method_mesh_add_surface_from_arrays>` **(** :ref:`RID<class_RID>` mesh, :ref:`PrimitiveType<enum_RenderingServer_PrimitiveType>` primitive, :ref:`Array<class_Array>` arrays, :ref:`Array<class_Array>` blend_shapes=[], :ref:`Dictionary<class_Dictionary>` lods={}, :ref:`ArrayFormat<enum_RenderingServer_ArrayFormat>` compress_format=0 **)**                                                                                                                                                                                                                                                                        |
+   | void                                                                             | :ref:`mesh_add_surface_from_arrays<class_RenderingServer_method_mesh_add_surface_from_arrays>` **(** :ref:`RID<class_RID>` mesh, :ref:`PrimitiveType<enum_RenderingServer_PrimitiveType>` primitive, :ref:`Array<class_Array>` arrays, :ref:`Array<class_Array>` blend_shapes=[], :ref:`Dictionary<class_Dictionary>` lods={}, |bitfield|\<:ref:`ArrayFormat<enum_RenderingServer_ArrayFormat>`\> compress_format=0 **)**                                                                                                                                                                                                                                                          |
    +----------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                                                             | :ref:`mesh_clear<class_RenderingServer_method_mesh_clear>` **(** :ref:`RID<class_RID>` mesh **)**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
    +----------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -565,13 +565,13 @@ Methods
    +----------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Array[]<class_Array>`                                                      | :ref:`mesh_surface_get_blend_shape_arrays<class_RenderingServer_method_mesh_surface_get_blend_shape_arrays>` **(** :ref:`RID<class_RID>` mesh, :ref:`int<class_int>` surface **)** |const|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
    +----------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`                                                            | :ref:`mesh_surface_get_format_attribute_stride<class_RenderingServer_method_mesh_surface_get_format_attribute_stride>` **(** :ref:`ArrayFormat<enum_RenderingServer_ArrayFormat>` format, :ref:`int<class_int>` vertex_count **)** |const|                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+   | :ref:`int<class_int>`                                                            | :ref:`mesh_surface_get_format_attribute_stride<class_RenderingServer_method_mesh_surface_get_format_attribute_stride>` **(** |bitfield|\<:ref:`ArrayFormat<enum_RenderingServer_ArrayFormat>`\> format, :ref:`int<class_int>` vertex_count **)** |const|                                                                                                                                                                                                                                                                                                                                                                                                                           |
    +----------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`                                                            | :ref:`mesh_surface_get_format_offset<class_RenderingServer_method_mesh_surface_get_format_offset>` **(** :ref:`ArrayFormat<enum_RenderingServer_ArrayFormat>` format, :ref:`int<class_int>` vertex_count, :ref:`int<class_int>` array_index **)** |const|                                                                                                                                                                                                                                                                                                                                                                                                                          |
+   | :ref:`int<class_int>`                                                            | :ref:`mesh_surface_get_format_offset<class_RenderingServer_method_mesh_surface_get_format_offset>` **(** |bitfield|\<:ref:`ArrayFormat<enum_RenderingServer_ArrayFormat>`\> format, :ref:`int<class_int>` vertex_count, :ref:`int<class_int>` array_index **)** |const|                                                                                                                                                                                                                                                                                                                                                                                                            |
    +----------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`                                                            | :ref:`mesh_surface_get_format_skin_stride<class_RenderingServer_method_mesh_surface_get_format_skin_stride>` **(** :ref:`ArrayFormat<enum_RenderingServer_ArrayFormat>` format, :ref:`int<class_int>` vertex_count **)** |const|                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+   | :ref:`int<class_int>`                                                            | :ref:`mesh_surface_get_format_skin_stride<class_RenderingServer_method_mesh_surface_get_format_skin_stride>` **(** |bitfield|\<:ref:`ArrayFormat<enum_RenderingServer_ArrayFormat>`\> format, :ref:`int<class_int>` vertex_count **)** |const|                                                                                                                                                                                                                                                                                                                                                                                                                                     |
    +----------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`                                                            | :ref:`mesh_surface_get_format_vertex_stride<class_RenderingServer_method_mesh_surface_get_format_vertex_stride>` **(** :ref:`ArrayFormat<enum_RenderingServer_ArrayFormat>` format, :ref:`int<class_int>` vertex_count **)** |const|                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+   | :ref:`int<class_int>`                                                            | :ref:`mesh_surface_get_format_vertex_stride<class_RenderingServer_method_mesh_surface_get_format_vertex_stride>` **(** |bitfield|\<:ref:`ArrayFormat<enum_RenderingServer_ArrayFormat>`\> format, :ref:`int<class_int>` vertex_count **)** |const|                                                                                                                                                                                                                                                                                                                                                                                                                                 |
    +----------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`RID<class_RID>`                                                            | :ref:`mesh_surface_get_material<class_RenderingServer_method_mesh_surface_get_material>` **(** :ref:`RID<class_RID>` mesh, :ref:`int<class_int>` surface **)** |const|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
    +----------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1216,7 +1216,7 @@ Array is a vertex color array.
 
 :ref:`ArrayType<enum_RenderingServer_ArrayType>` **ARRAY_TEX_UV** = ``4``
 
-Array is an UV coordinates array.
+Array is a UV coordinates array.
 
 .. _class_RenderingServer_constant_ARRAY_TEX_UV2:
 
@@ -1224,7 +1224,7 @@ Array is an UV coordinates array.
 
 :ref:`ArrayType<enum_RenderingServer_ArrayType>` **ARRAY_TEX_UV2** = ``5``
 
-Array is an UV coordinates array for the second set of UV coordinates.
+Array is a UV coordinates array for the second set of UV coordinates.
 
 .. _class_RenderingServer_constant_ARRAY_CUSTOM0:
 
@@ -1420,7 +1420,7 @@ Flag used to mark a vertex color array.
 
 :ref:`ArrayFormat<enum_RenderingServer_ArrayFormat>` **ARRAY_FORMAT_TEX_UV** = ``16``
 
-Flag used to mark an UV coordinates array.
+Flag used to mark a UV coordinates array.
 
 .. _class_RenderingServer_constant_ARRAY_FORMAT_TEX_UV2:
 
@@ -1428,7 +1428,7 @@ Flag used to mark an UV coordinates array.
 
 :ref:`ArrayFormat<enum_RenderingServer_ArrayFormat>` **ARRAY_FORMAT_TEX_UV2** = ``32``
 
-Flag used to mark an UV coordinates array for the second UV coordinates.
+Flag used to mark a UV coordinates array for the second UV coordinates.
 
 .. _class_RenderingServer_constant_ARRAY_FORMAT_CUSTOM0:
 
@@ -3054,7 +3054,7 @@ Number of objects drawn in a single frame.
 
 :ref:`ViewportRenderInfo<enum_RenderingServer_ViewportRenderInfo>` **VIEWPORT_RENDER_INFO_PRIMITIVES_IN_FRAME** = ``1``
 
-Number of vertices drawn in a single frame.
+Number of points, lines, or triangles drawn in a single frame.
 
 .. _class_RenderingServer_constant_VIEWPORT_RENDER_INFO_DRAW_CALLS_IN_FRAME:
 
@@ -5074,7 +5074,7 @@ Number of objects rendered in the current 3D scene. This varies depending on cam
 
 :ref:`RenderingInfo<enum_RenderingServer_RenderingInfo>` **RENDERING_INFO_TOTAL_PRIMITIVES_IN_FRAME** = ``1``
 
-Number of vertices/indices rendered in the current 3D scene. This varies depending on camera position and rotation.
+Number of points, lines, or triangles rendered in the current 3D scene. This varies depending on camera position and rotation.
 
 .. _class_RenderingServer_constant_RENDERING_INFO_TOTAL_DRAW_CALLS_IN_FRAME:
 
@@ -5098,7 +5098,7 @@ Texture memory used (in bytes).
 
 :ref:`RenderingInfo<enum_RenderingServer_RenderingInfo>` **RENDERING_INFO_BUFFER_MEM_USED** = ``4``
 
-Buffer memory used (in bytes).
+Buffer memory used (in bytes). This includes vertex data, uniform buffers, and many miscellaneous buffer types used internally.
 
 .. _class_RenderingServer_constant_RENDERING_INFO_VIDEO_MEM_USED:
 
@@ -5106,7 +5106,7 @@ Buffer memory used (in bytes).
 
 :ref:`RenderingInfo<enum_RenderingServer_RenderingInfo>` **RENDERING_INFO_VIDEO_MEM_USED** = ``5``
 
-Video memory used (in bytes). This is always greater than the sum of :ref:`RENDERING_INFO_TEXTURE_MEM_USED<class_RenderingServer_constant_RENDERING_INFO_TEXTURE_MEM_USED>` and :ref:`RENDERING_INFO_BUFFER_MEM_USED<class_RenderingServer_constant_RENDERING_INFO_BUFFER_MEM_USED>`, since there is miscellaneous data not accounted for by those two metrics.
+Video memory used (in bytes). When using the Forward+ or mobile rendering backends, this is always greater than the sum of :ref:`RENDERING_INFO_TEXTURE_MEM_USED<class_RenderingServer_constant_RENDERING_INFO_TEXTURE_MEM_USED>` and :ref:`RENDERING_INFO_BUFFER_MEM_USED<class_RenderingServer_constant_RENDERING_INFO_BUFFER_MEM_USED>`, since there is miscellaneous data not accounted for by those two metrics. When using the GL Compatibility backend, this is equal to the sum of :ref:`RENDERING_INFO_TEXTURE_MEM_USED<class_RenderingServer_constant_RENDERING_INFO_TEXTURE_MEM_USED>` and :ref:`RENDERING_INFO_BUFFER_MEM_USED<class_RenderingServer_constant_RENDERING_INFO_BUFFER_MEM_USED>`.
 
 .. rst-class:: classref-item-separator
 
@@ -5189,7 +5189,7 @@ The maximum number of glow levels that can be used with the glow post-processing
 
 **MAX_CURSORS** = ``8``
 
-*Deprecated.* This constant is unused.
+*Deprecated.* This constant is unused internally.
 
 .. _class_RenderingServer_constant_MAX_2D_DIRECTIONAL_LIGHTS:
 
@@ -8310,7 +8310,7 @@ void **mesh_add_surface** **(** :ref:`RID<class_RID>` mesh, :ref:`Dictionary<cla
 
 .. rst-class:: classref-method
 
-void **mesh_add_surface_from_arrays** **(** :ref:`RID<class_RID>` mesh, :ref:`PrimitiveType<enum_RenderingServer_PrimitiveType>` primitive, :ref:`Array<class_Array>` arrays, :ref:`Array<class_Array>` blend_shapes=[], :ref:`Dictionary<class_Dictionary>` lods={}, :ref:`ArrayFormat<enum_RenderingServer_ArrayFormat>` compress_format=0 **)**
+void **mesh_add_surface_from_arrays** **(** :ref:`RID<class_RID>` mesh, :ref:`PrimitiveType<enum_RenderingServer_PrimitiveType>` primitive, :ref:`Array<class_Array>` arrays, :ref:`Array<class_Array>` blend_shapes=[], :ref:`Dictionary<class_Dictionary>` lods={}, |bitfield|\<:ref:`ArrayFormat<enum_RenderingServer_ArrayFormat>`\> compress_format=0 **)**
 
 .. container:: contribute
 
@@ -8492,7 +8492,7 @@ Returns a mesh's surface's arrays for blend shapes.
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **mesh_surface_get_format_attribute_stride** **(** :ref:`ArrayFormat<enum_RenderingServer_ArrayFormat>` format, :ref:`int<class_int>` vertex_count **)** |const|
+:ref:`int<class_int>` **mesh_surface_get_format_attribute_stride** **(** |bitfield|\<:ref:`ArrayFormat<enum_RenderingServer_ArrayFormat>`\> format, :ref:`int<class_int>` vertex_count **)** |const|
 
 .. container:: contribute
 
@@ -8506,7 +8506,7 @@ Returns a mesh's surface's arrays for blend shapes.
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **mesh_surface_get_format_offset** **(** :ref:`ArrayFormat<enum_RenderingServer_ArrayFormat>` format, :ref:`int<class_int>` vertex_count, :ref:`int<class_int>` array_index **)** |const|
+:ref:`int<class_int>` **mesh_surface_get_format_offset** **(** |bitfield|\<:ref:`ArrayFormat<enum_RenderingServer_ArrayFormat>`\> format, :ref:`int<class_int>` vertex_count, :ref:`int<class_int>` array_index **)** |const|
 
 .. container:: contribute
 
@@ -8520,7 +8520,7 @@ Returns a mesh's surface's arrays for blend shapes.
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **mesh_surface_get_format_skin_stride** **(** :ref:`ArrayFormat<enum_RenderingServer_ArrayFormat>` format, :ref:`int<class_int>` vertex_count **)** |const|
+:ref:`int<class_int>` **mesh_surface_get_format_skin_stride** **(** |bitfield|\<:ref:`ArrayFormat<enum_RenderingServer_ArrayFormat>`\> format, :ref:`int<class_int>` vertex_count **)** |const|
 
 .. container:: contribute
 
@@ -8534,7 +8534,7 @@ Returns a mesh's surface's arrays for blend shapes.
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **mesh_surface_get_format_vertex_stride** **(** :ref:`ArrayFormat<enum_RenderingServer_ArrayFormat>` format, :ref:`int<class_int>` vertex_count **)** |const|
+:ref:`int<class_int>` **mesh_surface_get_format_vertex_stride** **(** |bitfield|\<:ref:`ArrayFormat<enum_RenderingServer_ArrayFormat>`\> format, :ref:`int<class_int>` vertex_count **)** |const|
 
 .. container:: contribute
 
@@ -10203,9 +10203,9 @@ Updates the texture specified by the ``texture`` :ref:`RID<class_RID>`'s data wi
 
 :ref:`int<class_int>` **texture_get_native_handle** **(** :ref:`RID<class_RID>` texture, :ref:`bool<class_bool>` srgb=false **)** |const|
 
-Returns the internal graphics handle for this texture object. For use when communicating with 3rd party APIs mostly with GDExternal.
+Returns the internal graphics handle for this texture object. For use when communicating with third-party APIs mostly with GDExtension.
 
-\ **Note:** This functions returns a ``uint64_t`` which internally maps to a ``GLuint`` (OpenGL) or ``VkImage`` (Vulkan).
+\ **Note:** This function returns a ``uint64_t`` which internally maps to a ``GLuint`` (OpenGL) or ``VkImage`` (Vulkan).
 
 .. rst-class:: classref-item-separator
 
@@ -10243,7 +10243,7 @@ Returns a texture :ref:`RID<class_RID>` that can be used with :ref:`RenderingDev
 
 :ref:`RID<class_RID>` **texture_proxy_create** **(** :ref:`RID<class_RID>` base **)**
 
-*Deprecated.* As ProxyTexture was removed in Godot 4, this method does nothing when called and always returns a null :ref:`RID<class_RID>`.
+*Deprecated.* ProxyTexture was removed in Godot 4, so this method does nothing when called and always returns a null :ref:`RID<class_RID>`.
 
 .. rst-class:: classref-item-separator
 
@@ -11224,3 +11224,4 @@ Sets the :ref:`VoxelGIData.use_two_bounces<class_VoxelGIData_property_use_two_bo
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

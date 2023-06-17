@@ -612,6 +612,8 @@ Path of the debug keystore file.
 
 Can be overridden with the environment variable ``GODOT_ANDROID_KEYSTORE_DEBUG_PATH``.
 
+Fallbacks to ``EditorSettings.export/android/debug_keystore`` if empty.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -626,6 +628,8 @@ Password for the debug keystore file.
 
 Can be overridden with the environment variable ``GODOT_ANDROID_KEYSTORE_DEBUG_PASSWORD``.
 
+Fallbacks to ``EditorSettings.export/android/debug_keystore_pass`` if both it and :ref:`keystore/debug<class_EditorExportPlatformAndroid_property_keystore/debug>` are empty.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -639,6 +643,8 @@ Can be overridden with the environment variable ``GODOT_ANDROID_KEYSTORE_DEBUG_P
 User name for the debug keystore file.
 
 Can be overridden with the environment variable ``GODOT_ANDROID_KEYSTORE_DEBUG_USER``.
+
+Fallbacks to ``EditorSettings.export/android/debug_keystore_user`` if both it and :ref:`keystore/debug<class_EditorExportPlatformAndroid_property_keystore/debug>` are empty.
 
 .. rst-class:: classref-item-separator
 
@@ -716,7 +722,7 @@ Foreground layer of the application adaptive icon file.
 
 :ref:`String<class_String>` **launcher_icons/main_192x192**
 
-Application icon file. If left empty, project icon is used instead.
+Application icon file. If left empty, it will fallback to :ref:`ProjectSettings.application/config/icon<class_ProjectSettings_property_application/config/icon>`.
 
 .. rst-class:: classref-item-separator
 
@@ -2718,3 +2724,4 @@ Application version visible to the user.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
