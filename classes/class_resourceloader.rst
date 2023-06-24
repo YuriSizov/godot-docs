@@ -12,14 +12,14 @@ ResourceLoader
 
 **Inherits:** :ref:`Object<class_Object>`
 
-Singleton used to load resource files.
+A singleton for loading resource files.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Singleton used to load resource files from the filesystem.
+A singleton used to load resource files from the filesystem.
 
 It uses the many :ref:`ResourceFormatLoader<class_ResourceFormatLoader>` classes registered in the engine (either built-in or from a plugin) to load files into memory and convert them to a format that can be used by the engine.
 
@@ -326,3 +326,4 @@ Changes the behavior on missing sub-resources. The default behavior is to abort 
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

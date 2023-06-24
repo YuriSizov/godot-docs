@@ -59,7 +59,15 @@ Properties
    :widths: auto
 
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`       | :ref:`debugger/auto_switch_to_remote_scene_tree<class_EditorSettings_property_debugger/auto_switch_to_remote_scene_tree>`                                                           |
+   +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`         | :ref:`debugger/profiler_frame_history_size<class_EditorSettings_property_debugger/profiler_frame_history_size>`                                                                     |
+   +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`         | :ref:`debugger/profiler_frame_max_functions<class_EditorSettings_property_debugger/profiler_frame_max_functions>`                                                                   |
+   +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`float<class_float>`     | :ref:`debugger/remote_inspect_refresh_interval<class_EditorSettings_property_debugger/remote_inspect_refresh_interval>`                                                             |
+   +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`float<class_float>`     | :ref:`debugger/remote_scene_tree_refresh_interval<class_EditorSettings_property_debugger/remote_scene_tree_refresh_interval>`                                                       |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`       | :ref:`docks/filesystem/always_show_folders<class_EditorSettings_property_docks/filesystem/always_show_folders>`                                                                     |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -88,8 +96,6 @@ Properties
    | :ref:`Color<class_Color>`     | :ref:`editors/2d/bone_selected_color<class_EditorSettings_property_editors/2d/bone_selected_color>`                                                                                 |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`         | :ref:`editors/2d/bone_width<class_EditorSettings_property_editors/2d/bone_width>`                                                                                                   |
-   +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`       | :ref:`editors/2d/constrain_editor_view<class_EditorSettings_property_editors/2d/constrain_editor_view>`                                                                             |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Color<class_Color>`     | :ref:`editors/2d/grid_color<class_EditorSettings_property_editors/2d/grid_color>`                                                                                                   |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -369,6 +375,8 @@ Properties
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`         | :ref:`run/output/font_size<class_EditorSettings_property_run/output/font_size>`                                                                                                     |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`         | :ref:`run/window_placement/android_window<class_EditorSettings_property_run/window_placement/android_window>`                                                                       |
+   +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`         | :ref:`run/window_placement/rect<class_EditorSettings_property_run/window_placement/rect>`                                                                                           |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Vector2<class_Vector2>` | :ref:`run/window_placement/rect_custom_position<class_EditorSettings_property_run/window_placement/rect_custom_position>`                                                           |
@@ -395,11 +403,11 @@ Properties
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`       | :ref:`text_editor/appearance/gutters/line_numbers_zero_padded<class_EditorSettings_property_text_editor/appearance/gutters/line_numbers_zero_padded>`                               |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`       | :ref:`text_editor/appearance/gutters/show_bookmark_gutter<class_EditorSettings_property_text_editor/appearance/gutters/show_bookmark_gutter>`                                       |
-   +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`       | :ref:`text_editor/appearance/gutters/show_info_gutter<class_EditorSettings_property_text_editor/appearance/gutters/show_info_gutter>`                                               |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`       | :ref:`text_editor/appearance/gutters/show_line_numbers<class_EditorSettings_property_text_editor/appearance/gutters/show_line_numbers>`                                             |
+   +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`         | :ref:`text_editor/appearance/lines/autowrap_mode<class_EditorSettings_property_text_editor/appearance/lines/autowrap_mode>`                                                         |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`       | :ref:`text_editor/appearance/lines/code_folding<class_EditorSettings_property_text_editor/appearance/lines/code_folding>`                                                           |
    +-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -631,6 +639,18 @@ Emitted after any editor setting has changed. It's used by various editor plugin
 Property Descriptions
 ---------------------
 
+.. _class_EditorSettings_property_debugger/auto_switch_to_remote_scene_tree:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **debugger/auto_switch_to_remote_scene_tree**
+
+If ``true``, automatically switches to the **Remote** scene tree when running the project from the editor. If ``false``, stays on the **Local** scene tree when running the project from the editor.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_EditorSettings_property_debugger/profiler_frame_history_size:
 
 .. rst-class:: classref-property
@@ -638,6 +658,44 @@ Property Descriptions
 :ref:`int<class_int>` **debugger/profiler_frame_history_size**
 
 The size of the profiler's frame history. The default value (3600) allows seeing up to 60 seconds of profiling if the project renders at a constant 60 FPS. Higher values allow viewing longer periods of profiling in the graphs, especially when the project is running at high framerates.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_EditorSettings_property_debugger/profiler_frame_max_functions:
+
+.. rst-class:: classref-property
+
+:ref:`int<class_int>` **debugger/profiler_frame_max_functions**
+
+The maximum number of script functions that can be displayed per frame in the profiler. If there are more script functions called in a given profiler frame, these functions will be discarded from the profiling results entirely.
+
+\ **Note:** This setting is only read when the profiler is first started, so changing it during profiling will have no effect.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_EditorSettings_property_debugger/remote_inspect_refresh_interval:
+
+.. rst-class:: classref-property
+
+:ref:`float<class_float>` **debugger/remote_inspect_refresh_interval**
+
+The refresh interval for the remote inspector's properties (in seconds). Lower values are more reactive, but may cause stuttering while the project is running from the editor and the **Remote** scene tree is selected in the Scene tree dock.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_EditorSettings_property_debugger/remote_scene_tree_refresh_interval:
+
+.. rst-class:: classref-property
+
+:ref:`float<class_float>` **debugger/remote_scene_tree_refresh_interval**
+
+The refresh interval for the remote scene tree (in seconds). Lower values are more reactive, but may cause stuttering while the project is running from the editor and the **Remote** scene tree is selected in the Scene tree dock.
 
 .. rst-class:: classref-item-separator
 
@@ -808,18 +866,6 @@ The color to use for selected bones in the 2D skeleton editor. See also :ref:`ed
 :ref:`int<class_int>` **editors/2d/bone_width**
 
 The bone width in the 2D skeleton editor (in pixels). See also :ref:`editors/2d/bone_outline_size<class_EditorSettings_property_editors/2d/bone_outline_size>`.
-
-.. rst-class:: classref-item-separator
-
-----
-
-.. _class_EditorSettings_property_editors/2d/constrain_editor_view:
-
-.. rst-class:: classref-property
-
-:ref:`bool<class_bool>` **editors/2d/constrain_editor_view**
-
-If ``true``, prevents the 2D editor viewport from leaving the scene. Limits are calculated dynamically based on nodes present in the current scene. If ``false``, the 2D editor viewport will be able to move freely, but you risk getting lost when zooming out too far. You can refocus on the scene by selecting a node then pressing :kbd:`F`.
 
 .. rst-class:: classref-item-separator
 
@@ -1011,7 +1057,7 @@ The grid division bias to use in the 3D editor. Negative values will cause small
 
 :ref:`int<class_int>` **editors/3d/grid_division_level_max**
 
-The smallest grid division to use in the 3D editor, specified as a power of 2. The grid will not be able to get larger than ``1 ^ grid_division_level_max`` units. By default, this means grid divisions cannot get smaller than 100 units each, no matter how far away the camera is from the grid.
+The largest grid division to use in the 3D editor. Together with :ref:`editors/3d/primary_grid_steps<class_EditorSettings_property_editors/3d/primary_grid_steps>`, this determines how large the grid divisions can be. The grid divisions will not be able to get larger than ``primary_grid_steps ^ grid_division_level_max`` units. By default, when :ref:`editors/3d/primary_grid_steps<class_EditorSettings_property_editors/3d/primary_grid_steps>` is ``8``, this means grid divisions cannot get larger than ``64`` uints each (so primary grid lines are ``512`` uints apart), no matter how far away the camera is from the grid.
 
 .. rst-class:: classref-item-separator
 
@@ -1023,7 +1069,7 @@ The smallest grid division to use in the 3D editor, specified as a power of 2. T
 
 :ref:`int<class_int>` **editors/3d/grid_division_level_min**
 
-The smallest grid division to use in the 3D editor, specified as a power of 2. The grid will not be able to get smaller than ``1 ^ grid_division_level_min`` units. By default, this means grid divisions cannot get smaller than 1 unit each, no matter how close the camera is from the grid.
+The smallest grid division to use in the 3D editor. Together with :ref:`editors/3d/primary_grid_steps<class_EditorSettings_property_editors/3d/primary_grid_steps>`, this determines how small the grid divisions can be. The grid divisions will not be able to get smaller than ``primary_grid_steps ^ grid_division_level_min`` units. By default, this means grid divisions cannot get smaller than 1 unit each, no matter how close the camera is from the grid.
 
 .. rst-class:: classref-item-separator
 
@@ -2597,6 +2643,20 @@ The size of the font in the **Output** panel at the bottom of the editor. This s
 
 ----
 
+.. _class_EditorSettings_property_run/window_placement/android_window:
+
+.. rst-class:: classref-property
+
+:ref:`int<class_int>` **run/window_placement/android_window**
+
+The Android window to display the project on when starting the project from the editor.
+
+\ **Note:** Only available in the Android editor.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_EditorSettings_property_run/window_placement/rect:
 
 .. rst-class:: classref-property
@@ -2753,25 +2813,13 @@ If ``true``, displays line numbers with zero padding (e.g. ``007`` instead of ``
 
 ----
 
-.. _class_EditorSettings_property_text_editor/appearance/gutters/show_bookmark_gutter:
-
-.. rst-class:: classref-property
-
-:ref:`bool<class_bool>` **text_editor/appearance/gutters/show_bookmark_gutter**
-
-If ``true``, displays icons for bookmarks in a gutter at the left. Bookmarks remain functional when this setting is disabled.
-
-.. rst-class:: classref-item-separator
-
-----
-
 .. _class_EditorSettings_property_text_editor/appearance/gutters/show_info_gutter:
 
 .. rst-class:: classref-property
 
 :ref:`bool<class_bool>` **text_editor/appearance/gutters/show_info_gutter**
 
-If ``true``, displays a gutter at the left containing icons for methods with signal connections.
+If ``true``, displays a gutter at the left containing icons for methods with signal connections and for overridden methods.
 
 .. rst-class:: classref-item-separator
 
@@ -2784,6 +2832,18 @@ If ``true``, displays a gutter at the left containing icons for methods with sig
 :ref:`bool<class_bool>` **text_editor/appearance/gutters/show_line_numbers**
 
 If ``true``, displays line numbers in a gutter at the left.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_EditorSettings_property_text_editor/appearance/lines/autowrap_mode:
+
+.. rst-class:: classref-property
+
+:ref:`int<class_int>` **text_editor/appearance/lines/autowrap_mode**
+
+If :ref:`text_editor/appearance/lines/word_wrap<class_EditorSettings_property_text_editor/appearance/lines/word_wrap>` is set to ``1``, sets text wrapping mode. To see how each mode behaves, see :ref:`AutowrapMode<enum_TextServer_AutowrapMode>`.
 
 .. rst-class:: classref-item-separator
 
@@ -3916,3 +3976,4 @@ Sets the ``value`` of the setting specified by ``name``. This is equivalent to u
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

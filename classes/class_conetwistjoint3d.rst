@@ -12,18 +12,14 @@ ConeTwistJoint3D
 
 **Inherits:** :ref:`Joint3D<class_Joint3D>` **<** :ref:`Node3D<class_Node3D>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-A twist joint between two 3D PhysicsBodies.
+A physics joint that connects two 3D physics bodies in a way that simulates a ball-and-socket joint.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-The joint can rotate the bodies across an axis defined by the local x-axes of the :ref:`Joint3D<class_Joint3D>`.
-
-The twist axis is initiated as the X axis of the :ref:`Joint3D<class_Joint3D>`.
-
-Once the Bodies swing, the twist axis is calculated as the middle of the x-axes of the Joint3D in the local space of the two Bodies. See also :ref:`Generic6DOFJoint3D<class_Generic6DOFJoint3D>`.
+A physics joint that connects two 3D physics bodies in a way that simulates a ball-and-socket joint. The twist axis is initiated as the X axis of the **ConeTwistJoint3D**. Once the physics bodies swing, the twist axis is calculated as the middle of the X axes of the joint in the local space of the two physics bodies. Useful for limbs like shoulders and hips, lamps hanging off a ceiling, etc.
 
 .. rst-class:: classref-reftable-group
 
@@ -267,3 +263,4 @@ Sets the value of the specified parameter.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

@@ -12,14 +12,14 @@ Geometry3D
 
 **Inherits:** :ref:`Object<class_Object>`
 
-Helper node to calculate generic geometry operations in 3D space.
+Provides methods for some common 3D geometric operations.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Geometry3D provides users with a set of helper functions to create geometric shapes, compute intersections between shapes, and process various other geometric operations.
+Provides a set of helper functions to create geometric shapes, compute intersections between shapes, and process various other geometric operations in 3D.
 
 .. rst-class:: classref-reftable-group
 
@@ -210,3 +210,4 @@ Tests if the segment (``from``, ``to``) intersects the triangle ``a``, ``b``, ``
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

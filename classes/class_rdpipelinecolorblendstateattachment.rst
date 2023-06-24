@@ -55,8 +55,8 @@ For reference, this is how common user-facing blend modes are implemented in God
 
     var attachment = RDPipelineColorBlendStateAttachment.new()
     attachment.enable_blend = true
-    attachment.alpha_blend_op = RenderingDevice.BLEND_OP_SUBTRACT
-    attachment.color_blend_op = RenderingDevice.BLEND_OP_SUBTRACT
+    attachment.alpha_blend_op = RenderingDevice.BLEND_OP_REVERSE_SUBTRACT
+    attachment.color_blend_op = RenderingDevice.BLEND_OP_REVERSE_SUBTRACT
     attachment.src_color_blend_factor = RenderingDevice.BLEND_FACTOR_SRC_ALPHA
     attachment.dst_color_blend_factor = RenderingDevice.BLEND_FACTOR_ONE
     attachment.src_alpha_blend_factor = RenderingDevice.BLEND_FACTOR_SRC_ALPHA
@@ -347,3 +347,4 @@ Convenience method to perform standard mix blending with straight (non-premultip
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

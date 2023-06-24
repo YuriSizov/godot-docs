@@ -33,7 +33,7 @@ Allows control of :ref:`AnimationTree<class_AnimationTree>` state machines creat
 
  .. code-tab:: csharp
 
-    var stateMachine = GetNode<AnimationTree>("AnimationTree").Get("parameters/playback") as AnimationNodeStateMachinePlayback;
+    var stateMachine = GetNode<AnimationTree>("AnimationTree").Get("parameters/playback").As<AnimationNodeStateMachinePlayback>();
     stateMachine.Travel("some_state");
 
 
@@ -228,3 +228,4 @@ If ``reset_on_teleport`` is ``true``, the animation is played from the beginning
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

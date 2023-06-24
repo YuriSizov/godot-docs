@@ -10,14 +10,14 @@
 Array
 =====
 
-A generic array datatype.
+A built-in data structure that holds a sequence of elements.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-A generic array that can contain several elements of any type, accessible by a numerical index starting at 0. Negative indices can be used to count from the back, like in Python (-1 is the last element, -2 is the second to last, etc.).
+An array data structure that can contain a sequence of elements of any type. Elements are accessed by a numerical index starting at 0. Negative indices are used to count from the back (-1 is the last element, -2 is the second to last, etc.).
 
 \ **Example:**\ 
 
@@ -63,8 +63,6 @@ Arrays can be concatenated using the ``+`` operator:
     GD.Print(array1 + array2); // Prints [One, 2, 3, Four]
 
 
-
-\ **Note:** Concatenating with the ``+=`` operator will create a new array, which has a cost. If you want to append another array to an existing array, :ref:`append_array<class_Array_method_append_array>` is more efficient.
 
 \ **Note:** Arrays are always passed by reference. To get a copy of an array that can be modified independently of the original array, use :ref:`duplicate<class_Array_method_duplicate>`.
 
@@ -1031,6 +1029,8 @@ Removes an element from the array by index. If the index does not exist in the a
 
 \ **Note:** On large arrays, this method will be slower if the removed element is close to the beginning of the array (index 0). This is because all elements placed after the removed element have to be reindexed.
 
+\ **Note:** ``position`` cannot be negative. To remove an element relative to the end of the array, use ``arr.remove_at(arr.size() - (i + 1))``. To remove the last element from the array without returning the value, use ``arr.resize(arr.size() - 1)``.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -1300,3 +1300,4 @@ Returns a reference to the element of type :ref:`Variant<class_Variant>` at the 
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

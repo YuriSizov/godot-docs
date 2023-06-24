@@ -12,20 +12,20 @@ NavigationRegion2D
 
 **Inherits:** :ref:`Node2D<class_Node2D>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-A region of the 2D navigation map.
+A traversable 2D region that :ref:`NavigationAgent2D<class_NavigationAgent2D>`\ s can use for pathfinding.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-A region of the navigation map. It tells the :ref:`NavigationServer2D<class_NavigationServer2D>` what can be navigated and what cannot, based on its :ref:`NavigationPolygon<class_NavigationPolygon>` resource.
+A traversable 2D region based on a :ref:`NavigationPolygon<class_NavigationPolygon>` that :ref:`NavigationAgent2D<class_NavigationAgent2D>`\ s can use for pathfinding.
 
 Two regions can be connected to each other if they share a similar edge. You can set the minimum distance between two vertices required to connect two edges by using :ref:`NavigationServer2D.map_set_edge_connection_margin<class_NavigationServer2D_method_map_set_edge_connection_margin>`.
 
 \ **Note:** Overlapping two regions' navigation polygons is not enough for connecting two regions. They must share a similar edge.
 
-The pathfinding cost of entering this region from another region can be controlled with the :ref:`enter_cost<class_NavigationRegion2D_property_enter_cost>` value.
+The pathfinding cost of entering a region from another region can be controlled with the :ref:`enter_cost<class_NavigationRegion2D_property_enter_cost>` value.
 
 \ **Note:** This value is not added to the path cost when the start position is already inside this region.
 
@@ -300,3 +300,4 @@ Based on ``value``, enables or disables the specified layer in the :ref:`navigat
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

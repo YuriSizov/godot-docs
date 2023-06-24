@@ -12,14 +12,14 @@ InputEventShortcut
 
 **Inherits:** :ref:`InputEvent<class_InputEvent>` **<** :ref:`Resource<class_Resource>` **<** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-:ref:`InputEvent<class_InputEvent>` that signifies a triggered keyboard :ref:`Shortcut<class_Shortcut>`.
+Represents a triggered keyboard :ref:`Shortcut<class_Shortcut>`.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-InputEventShortcut is a special event that can be received in :ref:`Node._unhandled_key_input<class_Node_method__unhandled_key_input>`. It's typically sent by the editor's Command Palette to trigger actions, but can also be sent manually using :ref:`Viewport.push_unhandled_input<class_Viewport_method_push_unhandled_input>`.
+InputEventShortcut is a special event that can be received in :ref:`Node._unhandled_key_input<class_Node_method__unhandled_key_input>`. It is typically sent by the editor's Command Palette to trigger actions, but can also be sent manually using :ref:`Viewport.push_input<class_Viewport_method_push_input>`.
 
 .. rst-class:: classref-reftable-group
 
@@ -61,3 +61,4 @@ The :ref:`Shortcut<class_Shortcut>` represented by this event. Its :ref:`Shortcu
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

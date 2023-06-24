@@ -10,7 +10,7 @@
 @GDScript
 =========
 
-Built-in GDScript functions.
+Built-in GDScript constants, functions, and annotations.
 
 .. rst-class:: classref-introduction-group
 
@@ -109,7 +109,7 @@ Positive floating-point infinity. This is the result of floating-point division 
 
 **NAN** = ``nan``
 
-"Not a Number", an invalid floating-point value. :ref:`NAN<class_@GDScript_constant_NAN>` has special properties, including that it is not equal to itself (``NAN == NAN`` returns ``false``). It is output by some invalid operations, such as dividing floating-point ``0.0`` by ``0.0``.
+"Not a Number", an invalid floating-point value. :ref:`NAN<class_@GDScript_constant_NAN>` has special properties, including that ``!=`` always returns ``true``, while other comparison operators always return ``false``. This is true even when comparing with itself (``NAN == NAN`` returns ``false`` and ``NAN != NAN`` returns ``true``). It is returned by some invalid operations, such as dividing floating-point ``0.0`` by ``0.0``.
 
 \ **Warning:** "Not a Number" is only a concept with floating-point numbers, and has no equivalent for integers. Dividing an integer ``0`` by ``0`` will not result in :ref:`NAN<class_@GDScript_constant_NAN>` and will result in a run-time error instead.
 
@@ -659,11 +659,19 @@ Mark the following property as assigned when the :ref:`Node<class_Node>` is read
 
 .. rst-class:: classref-annotation
 
-**@rpc** **(** :ref:`String<class_String>` mode="authority", :ref:`String<class_String>` sync="call_remote", :ref:`String<class_String>` transfer_mode="unreliable", :ref:`int<class_int>` transfer_channel=0, ... **)** |vararg|
+**@rpc** **(** :ref:`String<class_String>` mode="authority", :ref:`String<class_String>` sync="call_remote", :ref:`String<class_String>` transfer_mode="unreliable", :ref:`int<class_int>` transfer_channel=0 **)**
 
 Mark the following method for remote procedure calls. See :doc:`High-level multiplayer <../tutorials/networking/high_level_multiplayer>`.
 
-The order of ``mode``, ``sync`` and ``transfer_mode`` does not matter and all arguments can be omitted, but ``transfer_channel`` always has to be the last argument. The accepted values for ``mode`` are ``"any_peer"`` or ``"authority"``, for ``sync`` are ``"call_remote"`` or ``"call_local"`` and for ``transfer_mode`` are ``"unreliable"``, ``"unreliable_ordered"`` or ``"reliable"``.
+The accepted values:
+
+- for ``mode`` are ``"any_peer"`` or ``"authority"``;
+
+- for ``sync`` are ``"call_remote"`` or ``"call_local"``;
+
+- and for ``transfer_mode`` are ``"unreliable"``, ``"unreliable_ordered"``, or ``"reliable"``.
+
+The order of ``mode``, ``sync`` and ``transfer_mode`` does not matter, but values related to the same argument must not be used more than once. ``transfer_channel`` always has to be the 4th argument (you must specify 3 preceding arguments).
 
 ::
 
@@ -1117,3 +1125,4 @@ Returns ``true`` if the given :ref:`Object<class_Object>`-derived class exists i
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

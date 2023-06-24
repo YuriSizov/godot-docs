@@ -10,14 +10,14 @@
 Vector3
 =======
 
-Vector used for 3D math using floating point coordinates.
+A 3D vector using floating point coordinates.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-3-element structure that can be used to represent positions in 3D space or any other triplet of numeric values.
+A 3-element structure that can be used to represent 3D coordinates or any other triplet of numeric values.
 
 It uses floating-point coordinates. By default, these floating-point values use 32-bit precision, unlike :ref:`float<class_float>` which is always 64-bit. If double precision is needed, compile the engine with the option ``precision=double``.
 
@@ -315,7 +315,7 @@ Down unit vector.
 
 **FORWARD** = ``Vector3(0, 0, -1)``
 
-Forward unit vector. Represents the local direction of forward, and the global direction of north.
+Forward unit vector. Represents the local direction of forward, and the global direction of north. Keep in mind that the forward direction for lights, cameras, etc is different from 3D assets like characters, which face towards the camera by convention. Use :ref:`MODEL_FRONT<class_Vector3_constant_MODEL_FRONT>` and similar constants when working in 3D asset space.
 
 .. _class_Vector3_constant_BACK:
 
@@ -324,6 +324,54 @@ Forward unit vector. Represents the local direction of forward, and the global d
 **BACK** = ``Vector3(0, 0, 1)``
 
 Back unit vector. Represents the local direction of back, and the global direction of south.
+
+.. _class_Vector3_constant_MODEL_LEFT:
+
+.. rst-class:: classref-constant
+
+**MODEL_LEFT** = ``Vector3(1, 0, 0)``
+
+Unit vector pointing towards the left side of imported 3D assets.
+
+.. _class_Vector3_constant_MODEL_RIGHT:
+
+.. rst-class:: classref-constant
+
+**MODEL_RIGHT** = ``Vector3(-1, 0, 0)``
+
+Unit vector pointing towards the right side of imported 3D assets.
+
+.. _class_Vector3_constant_MODEL_TOP:
+
+.. rst-class:: classref-constant
+
+**MODEL_TOP** = ``Vector3(0, 1, 0)``
+
+Unit vector pointing towards the top side (up) of imported 3D assets.
+
+.. _class_Vector3_constant_MODEL_BOTTOM:
+
+.. rst-class:: classref-constant
+
+**MODEL_BOTTOM** = ``Vector3(0, -1, 0)``
+
+Unit vector pointing towards the bottom side (down) of imported 3D assets.
+
+.. _class_Vector3_constant_MODEL_FRONT:
+
+.. rst-class:: classref-constant
+
+**MODEL_FRONT** = ``Vector3(0, 0, 1)``
+
+Unit vector pointing towards the front side (facing forward) of imported 3D assets.
+
+.. _class_Vector3_constant_MODEL_REAR:
+
+.. rst-class:: classref-constant
+
+**MODEL_REAR** = ``Vector3(0, 0, -1)``
+
+Unit vector pointing towards the rear side (back) of imported 3D assets.
 
 .. rst-class:: classref-section-separator
 
@@ -963,6 +1011,8 @@ Returns ``true`` if the vectors are not equal.
 
 \ **Note:** Due to floating-point precision errors, consider using :ref:`is_equal_approx<class_Vector3_method_is_equal_approx>` instead, which is more reliable.
 
+\ **Note:** Vectors with :ref:`@GDScript.NAN<class_@GDScript_constant_NAN>` elements don't behave the same as other vectors. Therefore, the results from this operator may not be accurate if NaNs are included.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -1123,6 +1173,8 @@ Divides each component of the **Vector3** by the given :ref:`int<class_int>`.
 
 Compares two **Vector3** vectors by first checking if the X value of the left vector is less than the X value of the ``right`` vector. If the X values are exactly equal, then it repeats this check with the Y values of the two vectors, and then with the Z values. This operator is useful for sorting vectors.
 
+\ **Note:** Vectors with :ref:`@GDScript.NAN<class_@GDScript_constant_NAN>` elements don't behave the same as other vectors. Therefore, the results from this operator may not be accurate if NaNs are included.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -1134,6 +1186,8 @@ Compares two **Vector3** vectors by first checking if the X value of the left ve
 :ref:`bool<class_bool>` **operator <=** **(** :ref:`Vector3<class_Vector3>` right **)**
 
 Compares two **Vector3** vectors by first checking if the X value of the left vector is less than or equal to the X value of the ``right`` vector. If the X values are exactly equal, then it repeats this check with the Y values of the two vectors, and then with the Z values. This operator is useful for sorting vectors.
+
+\ **Note:** Vectors with :ref:`@GDScript.NAN<class_@GDScript_constant_NAN>` elements don't behave the same as other vectors. Therefore, the results from this operator may not be accurate if NaNs are included.
 
 .. rst-class:: classref-item-separator
 
@@ -1149,6 +1203,8 @@ Returns ``true`` if the vectors are exactly equal.
 
 \ **Note:** Due to floating-point precision errors, consider using :ref:`is_equal_approx<class_Vector3_method_is_equal_approx>` instead, which is more reliable.
 
+\ **Note:** Vectors with :ref:`@GDScript.NAN<class_@GDScript_constant_NAN>` elements don't behave the same as other vectors. Therefore, the results from this operator may not be accurate if NaNs are included.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -1161,6 +1217,8 @@ Returns ``true`` if the vectors are exactly equal.
 
 Compares two **Vector3** vectors by first checking if the X value of the left vector is greater than the X value of the ``right`` vector. If the X values are exactly equal, then it repeats this check with the Y values of the two vectors, and then with the Z values. This operator is useful for sorting vectors.
 
+\ **Note:** Vectors with :ref:`@GDScript.NAN<class_@GDScript_constant_NAN>` elements don't behave the same as other vectors. Therefore, the results from this operator may not be accurate if NaNs are included.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -1172,6 +1230,8 @@ Compares two **Vector3** vectors by first checking if the X value of the left ve
 :ref:`bool<class_bool>` **operator >=** **(** :ref:`Vector3<class_Vector3>` right **)**
 
 Compares two **Vector3** vectors by first checking if the X value of the left vector is greater than or equal to the X value of the ``right`` vector. If the X values are exactly equal, then it repeats this check with the Y values of the two vectors, and then with the Z values. This operator is useful for sorting vectors.
+
+\ **Note:** Vectors with :ref:`@GDScript.NAN<class_@GDScript_constant_NAN>` elements don't behave the same as other vectors. Therefore, the results from this operator may not be accurate if NaNs are included.
 
 .. rst-class:: classref-item-separator
 
@@ -1215,3 +1275,4 @@ Returns the negative value of the **Vector3**. This is the same as writing ``Vec
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

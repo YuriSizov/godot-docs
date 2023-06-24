@@ -14,14 +14,14 @@ Button
 
 **Inherited By:** :ref:`CheckBox<class_CheckBox>`, :ref:`CheckButton<class_CheckButton>`, :ref:`ColorPickerButton<class_ColorPickerButton>`, :ref:`MenuButton<class_MenuButton>`, :ref:`OptionButton<class_OptionButton>`
 
-Standard themed Button.
+A themed button that can contain text and an icon.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Button is the standard themed button. It can contain text and an icon, and will display them according to the current :ref:`Theme<class_Theme>`.
+**Button** is the standard themed button. It can contain text and an icon, and it will display them according to the current :ref:`Theme<class_Theme>`.
 
 \ **Example of creating a button and assigning an action when pressed by code:**\ 
 
@@ -56,11 +56,9 @@ Button is the standard themed button. It can contain text and an icon, and will 
 
 
 
-Buttons (like all Control nodes) can also be created in the editor, but some situations may require creating them from code.
-
 See also :ref:`BaseButton<class_BaseButton>` which contains common properties and methods associated with this node.
 
-\ **Note:** Buttons do not interpret touch input and therefore don't support multitouch, since mouse emulation can only press one button at a given time. Use :ref:`TouchScreenButton<class_TouchScreenButton>` for buttons that trigger gameplay movement or actions, as :ref:`TouchScreenButton<class_TouchScreenButton>` supports multitouch.
+\ **Note:** Buttons do not interpret touch input and therefore don't support multitouch, since mouse emulation can only press one button at a given time. Use :ref:`TouchScreenButton<class_TouchScreenButton>` for buttons that trigger gameplay movement or actions.
 
 .. rst-class:: classref-introduction-group
 
@@ -642,3 +640,4 @@ Default :ref:`StyleBox<class_StyleBox>` for the **Button**.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
