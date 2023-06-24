@@ -14,18 +14,16 @@ SyntaxHighlighter
 
 **Inherited By:** :ref:`CodeHighlighter<class_CodeHighlighter>`, :ref:`EditorSyntaxHighlighter<class_EditorSyntaxHighlighter>`
 
-Base Syntax highlighter resource for :ref:`TextEdit<class_TextEdit>`.
+Base class for syntax highlighters. Provides syntax highlighting data to a :ref:`TextEdit<class_TextEdit>`.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Base syntax highlighter resource all syntax highlighters extend from, provides syntax highlighting data to :ref:`TextEdit<class_TextEdit>`.
+Base class for syntax highlighters. Provides syntax highlighting data to a :ref:`TextEdit<class_TextEdit>`. The associated :ref:`TextEdit<class_TextEdit>` will call into the **SyntaxHighlighter** on an as-needed basis.
 
-The associated :ref:`TextEdit<class_TextEdit>` node will call into the **SyntaxHighlighter** on an as-needed basis.
-
-\ **Note:** Each Syntax highlighter instance should not be shared across multiple :ref:`TextEdit<class_TextEdit>` nodes.
+\ **Note:** A **SyntaxHighlighter** instance should not be used across multiple :ref:`TextEdit<class_TextEdit>` nodes.
 
 .. rst-class:: classref-reftable-group
 
@@ -169,3 +167,4 @@ Clears then updates the **SyntaxHighlighter** caches. Override :ref:`_update_cac
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

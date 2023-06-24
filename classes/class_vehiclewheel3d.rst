@@ -12,16 +12,16 @@ VehicleWheel3D
 
 **Inherits:** :ref:`Node3D<class_Node3D>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Physics object that simulates the behavior of a wheel.
+A 3D physics body for a :ref:`VehicleBody3D<class_VehicleBody3D>` that simulates the behavior of a wheel.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-This node needs to be used as a child node of :ref:`VehicleBody3D<class_VehicleBody3D>` and simulates the behavior of one of its wheels. This node also acts as a collider to detect if the wheel is touching a surface.
+A node used as a child of a :ref:`VehicleBody3D<class_VehicleBody3D>` parent to simulate the behavior of one of its wheels. This node also acts as a collider to detect if the wheel is touching a surface.
 
-\ **Note:** This class has known issues and isn't designed to provide realistic 3D vehicle physics. If you want advanced vehicle physics, you will probably have to write your own physics integration using another :ref:`PhysicsBody3D<class_PhysicsBody3D>` class.
+\ **Note:** This class has known issues and isn't designed to provide realistic 3D vehicle physics. If you want advanced vehicle physics, you may need to write your own physics integration using another :ref:`PhysicsBody3D<class_PhysicsBody3D>` class.
 
 .. rst-class:: classref-introduction-group
 
@@ -396,3 +396,4 @@ Returns ``true`` if this wheel is in contact with a surface.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

@@ -14,7 +14,7 @@ Viewport
 
 **Inherited By:** :ref:`SubViewport<class_SubViewport>`, :ref:`Window<class_Window>`
 
-Base class for viewports.
+Abstract base class for viewports. Encapsulates drawing and interaction with a game world.
 
 .. rst-class:: classref-introduction-group
 
@@ -23,7 +23,7 @@ Description
 
 A Viewport creates a different view into the screen, or a sub-view inside another viewport. Children 2D Nodes will display on it, and children Camera3D 3D nodes will render on it too.
 
-Optionally, a viewport can have its own 2D or 3D world, so they don't share what they draw with other viewports.
+Optionally, a viewport can have its own 2D or 3D world, so it doesn't share what it draws with other viewports.
 
 Viewports can also choose to be audio listeners, so they generate positional audio depending on a 2D or 3D camera child of it.
 
@@ -185,7 +185,7 @@ Methods
    +-----------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Variant<class_Variant>`                                                                 | :ref:`gui_get_drag_data<class_Viewport_method_gui_get_drag_data>` **(** **)** |const|                                                                                                                                                                                  |
    +-----------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Control<class_Control>`                                                                 | :ref:`gui_get_focus_owner<class_Viewport_method_gui_get_focus_owner>` **(** **)**                                                                                                                                                                                      |
+   | :ref:`Control<class_Control>`                                                                 | :ref:`gui_get_focus_owner<class_Viewport_method_gui_get_focus_owner>` **(** **)** |const|                                                                                                                                                                              |
    +-----------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                                                                       | :ref:`gui_is_drag_successful<class_Viewport_method_gui_is_drag_successful>` **(** **)** |const|                                                                                                                                                                        |
    +-----------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -206,6 +206,8 @@ Methods
    | void                                                                                          | :ref:`set_input_as_handled<class_Viewport_method_set_input_as_handled>` **(** **)**                                                                                                                                                                                    |
    +-----------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                                                                          | :ref:`set_positional_shadow_atlas_quadrant_subdiv<class_Viewport_method_set_positional_shadow_atlas_quadrant_subdiv>` **(** :ref:`int<class_int>` quadrant, :ref:`PositionalShadowAtlasQuadrantSubdiv<enum_Viewport_PositionalShadowAtlasQuadrantSubdiv>` subdiv **)** |
+   +-----------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | void                                                                                          | :ref:`update_mouse_cursor_state<class_Viewport_method_update_mouse_cursor_state>` **(** **)**                                                                                                                                                                          |
    +-----------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                                                                          | :ref:`warp_mouse<class_Viewport_method_warp_mouse>` **(** :ref:`Vector2<class_Vector2>` position **)**                                                                                                                                                                 |
    +-----------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1936,7 +1938,7 @@ Returns the drag data from the GUI, that was previously returned by :ref:`Contro
 
 .. rst-class:: classref-method
 
-:ref:`Control<class_Control>` **gui_get_focus_owner** **(** **)**
+:ref:`Control<class_Control>` **gui_get_focus_owner** **(** **)** |const|
 
 Returns the :ref:`Control<class_Control>` having the focus within this viewport. If no :ref:`Control<class_Control>` has the focus, returns null.
 
@@ -2066,6 +2068,10 @@ If an earlier method marks the input as handled via :ref:`set_input_as_handled<c
 
 If none of the methods handle the event and :ref:`physics_object_picking<class_Viewport_property_physics_object_picking>` is ``true``, the event is used for physics object picking.
 
+\ **Note:** This method doesn't propagate input events to embedded :ref:`Window<class_Window>`\ s or :ref:`SubViewport<class_SubViewport>`\ s.
+
+\ *Deprecated.* Use :ref:`push_input<class_Viewport_method_push_input>` instead.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -2108,6 +2114,18 @@ Sets the number of subdivisions to use in the specified quadrant. A higher numbe
 
 ----
 
+.. _class_Viewport_method_update_mouse_cursor_state:
+
+.. rst-class:: classref-method
+
+void **update_mouse_cursor_state** **(** **)**
+
+Force instantly updating the display based on the current mouse cursor position. This includes updating the mouse cursor shape and sending necessary :ref:`Control.mouse_entered<class_Control_signal_mouse_entered>`, :ref:`CollisionObject2D.mouse_entered<class_CollisionObject2D_signal_mouse_entered>`, :ref:`CollisionObject3D.mouse_entered<class_CollisionObject3D_signal_mouse_entered>` and :ref:`Window.mouse_entered<class_Window_signal_mouse_entered>` signals and their respective ``mouse_exited`` counterparts.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_Viewport_method_warp_mouse:
 
 .. rst-class:: classref-method
@@ -2124,3 +2142,4 @@ Moves the mouse pointer to the specified position in this **Viewport** using the
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

@@ -2823,7 +2823,7 @@ Enum value which doesn't correspond to any MIDI message. This is used to initial
 
 :ref:`MIDIMessage<enum_@GlobalScope_MIDIMessage>` **MIDI_MESSAGE_NOTE_OFF** = ``8``
 
-MIDI note OFF message. See the documentation of :ref:`InputEventMIDI<class_InputEventMIDI>` for information of how to use MIDI inputs.
+MIDI note OFF message. Not all MIDI devices send this event; some send :ref:`MIDI_MESSAGE_NOTE_ON<class_@GlobalScope_constant_MIDI_MESSAGE_NOTE_ON>` with zero velocity instead. See the documentation of :ref:`InputEventMIDI<class_InputEventMIDI>` for information of how to use MIDI inputs.
 
 .. _class_@GlobalScope_constant_MIDI_MESSAGE_NOTE_ON:
 
@@ -2831,7 +2831,7 @@ MIDI note OFF message. See the documentation of :ref:`InputEventMIDI<class_Input
 
 :ref:`MIDIMessage<enum_@GlobalScope_MIDIMessage>` **MIDI_MESSAGE_NOTE_ON** = ``9``
 
-MIDI note ON message. See the documentation of :ref:`InputEventMIDI<class_InputEventMIDI>` for information of how to use MIDI inputs.
+MIDI note ON message. Some MIDI devices send this event with velocity zero instead of :ref:`MIDI_MESSAGE_NOTE_OFF<class_@GlobalScope_constant_MIDI_MESSAGE_NOTE_OFF>`, but implementations vary. See the documentation of :ref:`InputEventMIDI<class_InputEventMIDI>` for information of how to use MIDI inputs.
 
 .. _class_@GlobalScope_constant_MIDI_MESSAGE_AFTERTOUCH:
 
@@ -3603,16 +3603,74 @@ Hints that a :ref:`Color<class_Color>` property should be edited without affecti
 
 :ref:`PropertyHint<enum_@GlobalScope_PropertyHint>` **PROPERTY_HINT_TYPE_STRING** = ``23``
 
-Hint that a property represents a particular type. If a property is :ref:`TYPE_STRING<class_@GlobalScope_constant_TYPE_STRING>`, allows to set a type from the create dialog. If you need to create an :ref:`Array<class_Array>` to contain elements of a specific type, the ``hint_string`` must encode nested types using ``":"`` and ``"/"`` for specifying :ref:`Resource<class_Resource>` types. For instance:
+If a property is :ref:`String<class_String>`, hints that the property represents a particular type (class). This allows to select a type from the create dialog. The property will store the selected type as a string.
 
-::
+If a property is :ref:`Array<class_Array>`, hints the editor how to show elements. The ``hint_string`` must encode nested types using ``":"`` and ``"/"``.
 
-    hint_string = "%s:" % [TYPE_INT] # Array of integers.
-    hint_string = "%s:%s:" % [TYPE_ARRAY, TYPE_REAL] # Two-dimensional array of floats.
-    hint_string = "%s/%s:Resource" % [TYPE_OBJECT, TYPE_OBJECT] # Array of resources.
-    hint_string = "%s:%s/%s:Resource" % [TYPE_ARRAY, TYPE_OBJECT, TYPE_OBJECT] # Two-dimensional array of resources.
 
-\ **Note:** The final colon is required for properly detecting built-in types.
+.. tabs::
+
+ .. code-tab:: gdscript
+
+    # Array of elem_type.
+    hint_string = "%d:" % [elem_type]
+    hint_string = "%d/%d:%s" % [elem_type, elem_hint, elem_hint_string]
+    # Two-dimensional array of elem_type (array of arrays of elem_type).
+    hint_string = "%d:%d:" % [TYPE_ARRAY, elem_type]
+    hint_string = "%d:%d/%d:%s" % [TYPE_ARRAY, elem_type, elem_hint, elem_hint_string]
+    # Three-dimensional array of elem_type (array of arrays of arrays of elem_type).
+    hint_string = "%d:%d:%d:" % [TYPE_ARRAY, TYPE_ARRAY, elem_type]
+    hint_string = "%d:%d:%d/%d:%s" % [TYPE_ARRAY, TYPE_ARRAY, elem_type, elem_hint, elem_hint_string]
+
+ .. code-tab:: csharp
+
+    // Array of elemType.
+    hintString = $"{elemType:D}:";
+    hintString = $"{elemType:}/{elemHint:D}:{elemHintString}";
+    // Two-dimensional array of elemType (array of arrays of elemType).
+    hintString = $"{Variant.Type.Array:D}:{elemType:D}:";
+    hintString = $"{Variant.Type.Array:D}:{elemType:D}/{elemHint:D}:{elemHintString}";
+    // Three-dimensional array of elemType (array of arrays of arrays of elemType).
+    hintString = $"{Variant.Type.Array:D}:{Variant.Type.Array:D}:{elemType:D}:";
+    hintString = $"{Variant.Type.Array:D}:{Variant.Type.Array:D}:{elemType:D}/{elemHint:D}:{elemHintString}";
+
+
+
+Examples:
+
+
+.. tabs::
+
+ .. code-tab:: gdscript
+
+    hint_string = "%d:" % [TYPE_INT] # Array of integers.
+    hint_string = "%d/%d:1,10,1" % [TYPE_INT, PROPERTY_HINT_RANGE] # Array of integers (in range from 1 to 10).
+    hint_string = "%d/%d:Zero,One,Two" % [TYPE_INT, PROPERTY_HINT_ENUM] # Array of integers (an enum).
+    hint_string = "%d/%d:Zero,One,Three:3,Six:6" % [TYPE_INT, PROPERTY_HINT_ENUM] # Array of integers (an enum).
+    hint_string = "%d/%d:*.png" % [TYPE_STRING, PROPERTY_HINT_FILE] # Array of strings (file paths).
+    hint_string = "%d/%d:Texture2D" % [TYPE_OBJECT, PROPERTY_HINT_RESOURCE_TYPE] # Array of textures.
+    
+    hint_string = "%d:%d:" % [TYPE_ARRAY, TYPE_FLOAT] # Two-dimensional array of floats.
+    hint_string = "%d:%d/%d:" % [TYPE_ARRAY, TYPE_STRING, PROPERTY_HINT_MULTILINE_TEXT] # Two-dimensional array of multiline strings.
+    hint_string = "%d:%d/%d:-1,1,0.1" % [TYPE_ARRAY, TYPE_FLOAT, PROPERTY_HINT_RANGE] # Two-dimensional array of floats (in range from -1 to 1).
+    hint_string = "%d:%d/%d:Texture2D" % [TYPE_ARRAY, TYPE_OBJECT, PROPERTY_HINT_RESOURCE_TYPE] # Two-dimensional array of textures.
+
+ .. code-tab:: csharp
+
+    hintString = $"{Variant.Type.Int:D}/{PropertyHint.Range:D}:1,10,1"; // Array of integers (in range from 1 to 10).
+    hintString = $"{Variant.Type.Int:D}/{PropertyHint.Enum:D}:Zero,One,Two"; // Array of integers (an enum).
+    hintString = $"{Variant.Type.Int:D}/{PropertyHint.Enum:D}:Zero,One,Three:3,Six:6"; // Array of integers (an enum).
+    hintString = $"{Variant.Type.String:D}/{PropertyHint.File:D}:*.png"; // Array of strings (file paths).
+    hintString = $"{Variant.Type.Object:D}/{PropertyHint.ResourceType:D}:Texture2D"; // Array of textures.
+    
+    hintString = $"{Variant.Type.Array:D}:{Variant.Type.Float:D}:"; // Two-dimensional array of floats.
+    hintString = $"{Variant.Type.Array:D}:{Variant.Type.String:D}/{PropertyHint.MultilineText:D}:"; // Two-dimensional array of multiline strings.
+    hintString = $"{Variant.Type.Array:D}:{Variant.Type.Float:D}/{PropertyHint.Range:D}:-1,1,0.1"; // Two-dimensional array of floats (in range from -1 to 1).
+    hintString = $"{Variant.Type.Array:D}:{Variant.Type.Object:D}/{PropertyHint.ResourceType:D}:Texture2D"; // Two-dimensional array of textures.
+
+
+
+\ **Note:** The trailing colon is required for properly detecting built-in types.
 
 .. _class_@GlobalScope_constant_PROPERTY_HINT_NODE_PATH_TO_EDITED_NODE:
 
@@ -3982,7 +4040,7 @@ An export preset property with this flag contains confidential information and i
 
 :ref:`PropertyUsageFlags<enum_@GlobalScope_PropertyUsageFlags>` **PROPERTY_USAGE_DEFAULT** = ``6``
 
-Default usage (storage, editor and network).
+Default usage (storage and editor).
 
 .. _class_@GlobalScope_constant_PROPERTY_USAGE_NO_EDITOR:
 
@@ -3990,7 +4048,7 @@ Default usage (storage, editor and network).
 
 :ref:`PropertyUsageFlags<enum_@GlobalScope_PropertyUsageFlags>` **PROPERTY_USAGE_NO_EDITOR** = ``2``
 
-Default usage but without showing the property in the editor (storage, network).
+Default usage but without showing the property in the editor (storage).
 
 .. rst-class:: classref-item-separator
 
@@ -5303,7 +5361,7 @@ A type-safe version of :ref:`ceil<class_@GlobalScope_method_ceil>`, returning an
 
 :ref:`Variant<class_Variant>` **clamp** **(** :ref:`Variant<class_Variant>` value, :ref:`Variant<class_Variant>` min, :ref:`Variant<class_Variant>` max **)**
 
-Clamps the ``value``, returning a :ref:`Variant<class_Variant>` not less than ``min`` and not more than ``max``. Supported types: :ref:`int<class_int>`, :ref:`float<class_float>`, :ref:`Vector2<class_Vector2>`, :ref:`Vector2i<class_Vector2i>`, :ref:`Vector3<class_Vector3>`, :ref:`Vector3i<class_Vector3i>`, :ref:`Vector4<class_Vector4>`, :ref:`Vector4i<class_Vector4i>`.
+Clamps the ``value``, returning a :ref:`Variant<class_Variant>` not less than ``min`` and not more than ``max``. Any values that can be compared with the less than and greater than operators will work.
 
 ::
 
@@ -5325,7 +5383,7 @@ Clamps the ``value``, returning a :ref:`Variant<class_Variant>` not less than ``
     var f = clamp(Vector3i(-7, -8, -9), Vector3i(-1, 2, 3), Vector3i(-4, -5, -6))
     # f is (-4, -5, -6)
 
-\ **Note:** For better type safety, use :ref:`clampf<class_@GlobalScope_method_clampf>`, :ref:`clampi<class_@GlobalScope_method_clampi>`, :ref:`Vector2.clamp<class_Vector2_method_clamp>`, :ref:`Vector2i.clamp<class_Vector2i_method_clamp>`, :ref:`Vector3.clamp<class_Vector3_method_clamp>`, :ref:`Vector3i.clamp<class_Vector3i_method_clamp>`, :ref:`Vector4.clamp<class_Vector4_method_clamp>`, or :ref:`Vector4i.clamp<class_Vector4i_method_clamp>`.
+\ **Note:** For better type safety, use :ref:`clampf<class_@GlobalScope_method_clampf>`, :ref:`clampi<class_@GlobalScope_method_clampi>`, :ref:`Vector2.clamp<class_Vector2_method_clamp>`, :ref:`Vector2i.clamp<class_Vector2i_method_clamp>`, :ref:`Vector3.clamp<class_Vector3_method_clamp>`, :ref:`Vector3i.clamp<class_Vector3i_method_clamp>`, :ref:`Vector4.clamp<class_Vector4_method_clamp>`, :ref:`Vector4i.clamp<class_Vector4i_method_clamp>`, or :ref:`Color.clamp<class_Color_method_clamp>`.
 
 .. rst-class:: classref-item-separator
 
@@ -6075,7 +6133,7 @@ Returns the minimum of two :ref:`int<class_int>` values.
 
 :ref:`float<class_float>` **move_toward** **(** :ref:`float<class_float>` from, :ref:`float<class_float>` to, :ref:`float<class_float>` delta **)**
 
-Moves ``from`` toward ``to`` by the ``delta`` value.
+Moves ``from`` toward ``to`` by the ``delta`` amount. Will not go past ``to``.
 
 Use a negative ``delta`` value to move away.
 
@@ -6083,6 +6141,7 @@ Use a negative ``delta`` value to move away.
 
     move_toward(5, 10, 4)    # Returns 9
     move_toward(10, 5, 4)    # Returns 6
+    move_toward(5, 10, 9)    # Returns 10
     move_toward(10, 5, -1.5) # Returns 11.5
 
 .. rst-class:: classref-item-separator
@@ -6230,7 +6289,7 @@ The following BBCode tags are supported: ``b``, ``i``, ``u``, ``s``, ``indent``,
 
 Color tags only support the following named colors: ``black``, ``red``, ``green``, ``yellow``, ``blue``, ``magenta``, ``pink``, ``purple``, ``cyan``, ``white``, ``orange``, ``gray``. Hexadecimal color codes are not supported.
 
-URL tags only support URLs wrapped by an URL tag, not URLs with a different title.
+URL tags only support URLs wrapped by a URL tag, not URLs with a different title.
 
 When printing to standard output, the supported subset of BBCode is converted to ANSI escape codes for the terminal emulator to display. Support for ANSI escape codes varies across terminal emulators, especially for italic and strikethrough. In standard output, ``code`` is represented with faint text but without any font change. Unsupported tags are left as-is in standard output.
 
@@ -7108,6 +7167,8 @@ Prints:
         "b": 2
     }
 
+\ **Note:** Converting :ref:`Signal<class_Signal>` or :ref:`Callable<class_Callable>` is not supported and will result in an empty value for these types, regardless of their data.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -7206,3 +7267,4 @@ Wraps the integer ``value`` between ``min`` and ``max``. Can be used for creatin
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

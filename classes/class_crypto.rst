@@ -12,16 +12,16 @@ Crypto
 
 **Inherits:** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-Access to advanced cryptographic functionalities.
+Provides access to advanced cryptographic functionalities.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-The Crypto class allows you to access some more advanced cryptographic functionalities in Godot.
+The Crypto class provides access to advanced cryptographic functionalities.
 
-For now, this includes generating cryptographically secure random bytes, RSA keys and self-signed X509 certificates generation, asymmetric key encryption/decryption, and signing/verification.
+Currently, this includes asymmetric key encryption/decryption, signing/verification, and generating cryptographically secure random bytes, RSA keys, HMAC digests, and self-signed :ref:`X509Certificate<class_X509Certificate>`\ s.
 
 
 .. tabs::
@@ -270,3 +270,4 @@ Verify that a given ``signature`` for ``hash`` of type ``hash_type`` against the
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

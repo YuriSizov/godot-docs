@@ -37,7 +37,7 @@ The **SurfaceTool** is used to construct a :ref:`Mesh<class_Mesh>` by specifying
     var st = new SurfaceTool();
     st.Begin(Mesh.PrimitiveType.Triangles);
     st.SetColor(new Color(1, 0, 0));
-    st.SetUv(new Vector2(0, 0));
+    st.SetUV(new Vector2(0, 0));
     st.AddVertex(new Vector3(0, 0, 0));
 
 
@@ -399,7 +399,7 @@ Removes the index array by expanding the vertex array.
 
 Generates a LOD for a given ``nd_threshold`` in linear units (square root of quadric error metric), using at most ``target_index_count`` indices.
 
-Deprecated. Unused internally and neglects to preserve normals or UVs. Consider using :ref:`ImporterMesh.generate_lods<class_ImporterMesh_method_generate_lods>` instead.
+\ *Deprecated.* Unused internally and neglects to preserve normals or UVs. Consider using :ref:`ImporterMesh.generate_lods<class_ImporterMesh_method_generate_lods>` instead.
 
 .. rst-class:: classref-item-separator
 
@@ -611,7 +611,7 @@ void **set_smooth_group** **(** :ref:`int<class_int>` index **)**
 
 Specifies the smooth group to use for the *next* vertex. If this is never called, all vertices will have the default smooth group of ``0`` and will be smoothed with adjacent vertices of the same group. To produce a mesh with flat normals, set the smooth group to ``-1``.
 
-\ **Note:** This function actually takes an ``uint32_t``, so C# users should use ``uint32.MaxValue`` instead of ``-1`` to produce a mesh with flat normals.
+\ **Note:** This function actually takes a ``uint32_t``, so C# users should use ``uint32.MaxValue`` instead of ``-1`` to produce a mesh with flat normals.
 
 .. rst-class:: classref-item-separator
 
@@ -667,3 +667,4 @@ Specifies weight values to use for the *next* vertex. ``weights`` must contain 4
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

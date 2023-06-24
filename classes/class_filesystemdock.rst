@@ -12,7 +12,7 @@ FileSystemDock
 
 **Inherits:** :ref:`VBoxContainer<class_VBoxContainer>` **<** :ref:`BoxContainer<class_BoxContainer>` **<** :ref:`Container<class_Container>` **<** :ref:`Control<class_Control>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Editor dock for managing files in the project.
+Godot editor's dock for managing files in the project.
 
 .. rst-class:: classref-introduction-group
 
@@ -21,7 +21,7 @@ Description
 
 This class is available only in :ref:`EditorPlugin<class_EditorPlugin>`\ s and can't be instantiated. You can access it using :ref:`EditorInterface.get_file_system_dock<class_EditorInterface_method_get_file_system_dock>`.
 
-While FileSystemDock doesn't expose any methods for file manipulation, you can listen for various file-related signals.
+While **FileSystemDock** doesn't expose any methods for file manipulation, it can listen for various file-related signals.
 
 .. rst-class:: classref-reftable-group
 
@@ -187,3 +187,4 @@ Removes an :ref:`EditorResourceTooltipPlugin<class_EditorResourceTooltipPlugin>`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

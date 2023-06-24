@@ -12,7 +12,7 @@ FontFile
 
 **Inherits:** :ref:`Font<class_Font>` **<** :ref:`Resource<class_Resource>` **<** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-Font source data and prerendered glyph cache, imported from dynamic or bitmap font.
+Holds font source data and prerendered glyph cache, imported from a dynamic or a bitmap font.
 
 .. rst-class:: classref-introduction-group
 
@@ -35,9 +35,9 @@ Supported font formats:
 
 \ **Note:** A character is a symbol that represents an item (letter, digit etc.) in an abstract way.
 
-\ **Note:** A glyph is a bitmap or shape used to draw one or more characters in a context-dependent manner. Glyph indices are bound to the specific font data source.
+\ **Note:** A glyph is a bitmap or a shape used to draw one or more characters in a context-dependent manner. Glyph indices are bound to the specific font data source.
 
-\ **Note:** If a none of the font data sources contain glyphs for a character used in a string, the character in question will be replaced with a box displaying its hexadecimal code.
+\ **Note:** If none of the font data sources contain glyphs for a character used in a string, the character in question will be replaced with a box displaying its hexadecimal code.
 
 
 .. tabs::
@@ -79,7 +79,7 @@ Properties
    +-----------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+-----------------------+
    | :ref:`int<class_int>`                                           | :ref:`font_stretch<class_FontFile_property_font_stretch>`                                             | ``100``               |
    +-----------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+-----------------------+
-   | :ref:`FontStyle<enum_TextServer_FontStyle>`                     | :ref:`font_style<class_FontFile_property_font_style>`                                                 | ``0``                 |
+   | |bitfield|\<:ref:`FontStyle<enum_TextServer_FontStyle>`\>       | :ref:`font_style<class_FontFile_property_font_style>`                                                 | ``0``                 |
    +-----------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+-----------------------+
    | :ref:`int<class_int>`                                           | :ref:`font_weight<class_FontFile_property_font_weight>`                                               | ``400``               |
    +-----------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+-----------------------+
@@ -372,12 +372,12 @@ Font stretch amount, compared to a normal width. A percentage value between ``50
 
 .. rst-class:: classref-property
 
-:ref:`FontStyle<enum_TextServer_FontStyle>` **font_style** = ``0``
+|bitfield|\<:ref:`FontStyle<enum_TextServer_FontStyle>`\> **font_style** = ``0``
 
 .. rst-class:: classref-property-setget
 
-- void **set_font_style** **(** :ref:`FontStyle<enum_TextServer_FontStyle>` value **)**
-- :ref:`FontStyle<enum_TextServer_FontStyle>` **get_font_style** **(** **)**
+- void **set_font_style** **(** |bitfield|\<:ref:`FontStyle<enum_TextServer_FontStyle>`\> value **)**
+- |bitfield|\<:ref:`FontStyle<enum_TextServer_FontStyle>`\> **get_font_style** **(** **)**
 
 Font style flags, see :ref:`FontStyle<enum_TextServer_FontStyle>`.
 
@@ -1355,3 +1355,4 @@ Sets variation coordinates for the specified font cache entry. See :ref:`Font.ge
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

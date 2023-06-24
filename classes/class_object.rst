@@ -228,7 +228,7 @@ enum **ConnectFlags**:
 
 :ref:`ConnectFlags<enum_Object_ConnectFlags>` **CONNECT_DEFERRED** = ``1``
 
-Deferred connections trigger their :ref:`Callable<class_Callable>`\ s on idle time, rather than instantly.
+Deferred connections trigger their :ref:`Callable<class_Callable>`\ s on idle time (at the end of the frame), rather than instantly.
 
 .. _class_Object_constant_CONNECT_PERSIST:
 
@@ -474,7 +474,7 @@ Called when the object receives a notification, which can be identified in ``wha
 
  .. code-tab:: csharp
 
-    public override void _Notification(long what)
+    public override void _Notification(int what)
     {
         if (what == NotificationPredelete)
         {
@@ -669,7 +669,11 @@ Calls the ``method`` on the object and returns the result. This method supports 
 
 :ref:`Variant<class_Variant>` **call_deferred** **(** :ref:`StringName<class_StringName>` method, ... **)** |vararg|
 
-Calls the ``method`` on the object during idle time. This method supports a variable number of arguments, so parameters can be passed as a comma separated list.
+Calls the ``method`` on the object during idle time. Always returns null, **not** the method's result.
+
+Idle time happens mainly at the end of process and physics frames. In it, deferred calls will be run until there are none left, which means you can defer calls from other deferred calls and they'll still be run in the current idle time cycle. If not done carefully, this can result in infinite recursion without causing a stack overflow, which will hang the game similarly to an infinite loop.
+
+This method supports a variable number of arguments, so parameters can be passed as a comma separated list.
 
 
 .. tabs::
@@ -686,7 +690,20 @@ Calls the ``method`` on the object during idle time. This method supports a vari
 
 
 
+See also :ref:`Callable.call_deferred<class_Callable_method_call_deferred>`.
+
 \ **Note:** In C#, ``method`` must be in snake_case when referring to built-in Godot methods. Prefer using the names exposed in the ``MethodName`` class to avoid allocating a new :ref:`StringName<class_StringName>` on each call.
+
+\ **Note:** If you're looking to delay the function call by a frame, refer to the :ref:`SceneTree.process_frame<class_SceneTree_signal_process_frame>` and :ref:`SceneTree.physics_frame<class_SceneTree_signal_physics_frame>` signals.
+
+::
+
+    var node = Node3D.new()
+    # Make a Callable and bind the arguments to the node's rotate() call.
+    var callable = node.rotate.bind(Vector3(1.0, 0.0, 0.0), 1.571)
+    # Connect the callable to the process_frame signal, so it gets called in the next process frame.
+    # CONNECT_ONE_SHOT makes sure it only gets called once instead of every frame.
+    get_tree().process_frame.connect(callable, CONNECT_ONE_SHOT)
 
 .. rst-class:: classref-item-separator
 
@@ -1082,7 +1099,9 @@ Returns the object's unique instance ID. This ID can be saved in :ref:`EncodedOb
 
 Returns the object's metadata value for the given entry ``name``. If the entry does not exist, returns ``default``. If ``default`` is ``null``, an error is also generated.
 
-\ **Note:** Metadata that has a ``name`` starting with an underscore (``_``) is considered editor-only. Editor-only metadata is not displayed in the Inspector dock and should not be edited.
+\ **Note:** A metadata's ``name`` must be a valid identifier as per :ref:`StringName.is_valid_identifier<class_StringName_method_is_valid_identifier>` method.
+
+\ **Note:** Metadata that has a ``name`` starting with an underscore (``_``) is considered editor-only. Editor-only metadata is not displayed in the Inspector and should not be edited, although it can still be found by this method.
 
 .. rst-class:: classref-item-separator
 
@@ -1201,6 +1220,8 @@ Returns the list of existing signals as an :ref:`Array<class_Array>` of dictiona
 :ref:`bool<class_bool>` **has_meta** **(** :ref:`StringName<class_StringName>` name **)** |const|
 
 Returns ``true`` if a metadata entry is found with the given ``name``. See also :ref:`get_meta<class_Object_method_get_meta>`, :ref:`set_meta<class_Object_method_set_meta>` and :ref:`remove_meta<class_Object_method_remove_meta>`.
+
+\ **Note:** A metadata's ``name`` must be a valid identifier as per :ref:`StringName.is_valid_identifier<class_StringName_method_is_valid_identifier>` method.
 
 \ **Note:** Metadata that has a ``name`` starting with an underscore (``_``) is considered editor-only. Editor-only metadata is not displayed in the Inspector and should not be edited, although it can still be found by this method.
 
@@ -1408,7 +1429,9 @@ void **remove_meta** **(** :ref:`StringName<class_StringName>` name **)**
 
 Removes the given entry ``name`` from the object's metadata. See also :ref:`has_meta<class_Object_method_has_meta>`, :ref:`get_meta<class_Object_method_get_meta>` and :ref:`set_meta<class_Object_method_set_meta>`.
 
-\ **Note:** Metadata that has a ``name`` starting with an underscore (``_``) is considered editor-only. Editor-only metadata is not displayed in the Inspector and should not be edited.
+\ **Note:** A metadata's ``name`` must be a valid identifier as per :ref:`StringName.is_valid_identifier<class_StringName_method_is_valid_identifier>` method.
+
+\ **Note:** Metadata that has a ``name`` starting with an underscore (``_``) is considered editor-only. Editor-only metadata is not displayed in the Inspector and should not be edited, although it can still be found by this method.
 
 .. rst-class:: classref-item-separator
 
@@ -1463,7 +1486,7 @@ If set to ``true``, the object becomes unable to emit signals. As such, :ref:`em
 
 void **set_deferred** **(** :ref:`StringName<class_StringName>` property, :ref:`Variant<class_Variant>` value **)**
 
-Assigns ``value`` to the given ``property``, after the current frame's physics step. This is equivalent to calling :ref:`set<class_Object_method_set>` through :ref:`call_deferred<class_Object_method_call_deferred>`.
+Assigns ``value`` to the given ``property``, at the end of the current frame. This is equivalent to calling :ref:`set<class_Object_method_set>` through :ref:`call_deferred<class_Object_method_call_deferred>`.
 
 
 .. tabs::
@@ -1553,7 +1576,9 @@ Adds or changes the entry ``name`` inside the object's metadata. The metadata ``
 
 If ``value`` is ``null``, the entry is removed. This is the equivalent of using :ref:`remove_meta<class_Object_method_remove_meta>`. See also :ref:`has_meta<class_Object_method_has_meta>` and :ref:`get_meta<class_Object_method_get_meta>`.
 
-\ **Note:** Metadata that has a ``name`` starting with an underscore (``_``) is considered editor-only. Editor-only metadata is not displayed in the Inspector dock and should not be edited.
+\ **Note:** A metadata's ``name`` must be a valid identifier as per :ref:`StringName.is_valid_identifier<class_StringName_method_is_valid_identifier>` method.
+
+\ **Note:** Metadata that has a ``name`` starting with an underscore (``_``) is considered editor-only. Editor-only metadata is not displayed in the Inspector and should not be edited, although it can still be found by this method.
 
 .. rst-class:: classref-item-separator
 
@@ -1623,3 +1648,4 @@ For detailed examples, see :doc:`Localization using gettext <../tutorials/i18n/l
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

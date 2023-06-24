@@ -14,14 +14,14 @@ PhysicsDirectBodyState2D
 
 **Inherited By:** :ref:`PhysicsDirectBodyState2DExtension<class_PhysicsDirectBodyState2DExtension>`
 
-Direct access object to a physics body in the :ref:`PhysicsServer2D<class_PhysicsServer2D>`.
+Provides direct access to a physics body in the :ref:`PhysicsServer2D<class_PhysicsServer2D>`.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Provides direct access to a physics body in the :ref:`PhysicsServer2D<class_PhysicsServer2D>`, allowing safe changes to physics properties. This object is passed via the direct state callback of rigid bodies, and is intended for changing the direct state of that body. See :ref:`RigidBody2D._integrate_forces<class_RigidBody2D_method__integrate_forces>`.
+Provides direct access to a physics body in the :ref:`PhysicsServer2D<class_PhysicsServer2D>`, allowing safe changes to physics properties. This object is passed via the direct state callback of :ref:`RigidBody2D<class_RigidBody2D>`, and is intended for changing the direct state of that body. See :ref:`RigidBody2D._integrate_forces<class_RigidBody2D_method__integrate_forces>`.
 
 .. rst-class:: classref-introduction-group
 
@@ -712,3 +712,4 @@ See :ref:`add_constant_torque<class_PhysicsDirectBodyState2D_method_add_constant
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
