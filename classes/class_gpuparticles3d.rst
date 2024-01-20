@@ -254,6 +254,10 @@ enum **TransformAlign**:
 
 :ref:`TransformAlign<enum_GPUParticles3D_TransformAlign>` **TRANSFORM_ALIGN_DISABLED** = ``0``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_GPUParticles3D_constant_TRANSFORM_ALIGN_Z_BILLBOARD:
@@ -261,6 +265,10 @@ enum **TransformAlign**:
 .. rst-class:: classref-enumeration-constant
 
 :ref:`TransformAlign<enum_GPUParticles3D_TransformAlign>` **TRANSFORM_ALIGN_Z_BILLBOARD** = ``1``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -270,6 +278,10 @@ enum **TransformAlign**:
 
 :ref:`TransformAlign<enum_GPUParticles3D_TransformAlign>` **TRANSFORM_ALIGN_Y_TO_VELOCITY** = ``2``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_GPUParticles3D_constant_TRANSFORM_ALIGN_Z_BILLBOARD_Y_TO_VELOCITY:
@@ -277,6 +289,10 @@ enum **TransformAlign**:
 .. rst-class:: classref-enumeration-constant
 
 :ref:`TransformAlign<enum_GPUParticles3D_TransformAlign>` **TRANSFORM_ALIGN_Z_BILLBOARD_Y_TO_VELOCITY** = ``3``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -842,6 +858,8 @@ Sets this node's properties to match a given :ref:`CPUParticles3D<class_CPUParti
 void **emit_particle** **(** :ref:`Transform3D<class_Transform3D>` xform, :ref:`Vector3<class_Vector3>` velocity, :ref:`Color<class_Color>` color, :ref:`Color<class_Color>` custom, :ref:`int<class_int>` flags **)**
 
 Emits a single particle. Whether ``xform``, ``velocity``, ``color`` and ``custom`` are applied depends on the value of ``flags``. See :ref:`EmitFlags<enum_GPUParticles3D_EmitFlags>`.
+
+The default ParticleProcessMaterial will overwrite ``color`` and use the contents of ``custom`` as ``(rotation, age, animation, lifetime)``.
 
 .. rst-class:: classref-item-separator
 
