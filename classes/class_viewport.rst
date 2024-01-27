@@ -191,6 +191,8 @@ Methods
    +-----------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Control<class_Control>`                                                                 | :ref:`gui_get_focus_owner<class_Viewport_method_gui_get_focus_owner>` **(** **)** |const|                                                                                                                                                                              |
    +-----------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Control<class_Control>`                                                                 | :ref:`gui_get_hovered_control<class_Viewport_method_gui_get_hovered_control>` **(** **)** |const|                                                                                                                                                                      |
+   +-----------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                                                                       | :ref:`gui_is_drag_successful<class_Viewport_method_gui_is_drag_successful>` **(** **)** |const|                                                                                                                                                                        |
    +-----------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                                                                       | :ref:`gui_is_dragging<class_Viewport_method_gui_is_dragging>` **(** **)** |const|                                                                                                                                                                                      |
@@ -508,6 +510,10 @@ enum **RenderInfoType**:
 
 :ref:`RenderInfoType<enum_Viewport_RenderInfoType>` **RENDER_INFO_TYPE_VISIBLE** = ``0``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_Viewport_constant_RENDER_INFO_TYPE_SHADOW:
@@ -516,6 +522,10 @@ enum **RenderInfoType**:
 
 :ref:`RenderInfoType<enum_Viewport_RenderInfoType>` **RENDER_INFO_TYPE_SHADOW** = ``1``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_Viewport_constant_RENDER_INFO_TYPE_MAX:
@@ -523,6 +533,10 @@ enum **RenderInfoType**:
 .. rst-class:: classref-enumeration-constant
 
 :ref:`RenderInfoType<enum_Viewport_RenderInfoType>` **RENDER_INFO_TYPE_MAX** = ``2``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -558,6 +572,10 @@ Objects are displayed without light information.
 
 :ref:`DebugDraw<enum_Viewport_DebugDraw>` **DEBUG_DRAW_LIGHTING** = ``2``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_Viewport_constant_DEBUG_DRAW_OVERDRAW:
@@ -581,6 +599,10 @@ Objects are displayed in wireframe style.
 .. rst-class:: classref-enumeration-constant
 
 :ref:`DebugDraw<enum_Viewport_DebugDraw>` **DEBUG_DRAW_NORMAL_BUFFER** = ``5``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -630,6 +652,10 @@ Draws the shadow atlas that stores shadows from :ref:`DirectionalLight3D<class_D
 
 :ref:`DebugDraw<enum_Viewport_DebugDraw>` **DEBUG_DRAW_SCENE_LUMINANCE** = ``11``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_Viewport_constant_DEBUG_DRAW_SSAO:
@@ -670,6 +696,10 @@ Draws the decal atlas used by :ref:`Decal<class_Decal>`\ s and light projector t
 
 :ref:`DebugDraw<enum_Viewport_DebugDraw>` **DEBUG_DRAW_SDFGI** = ``16``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_Viewport_constant_DEBUG_DRAW_SDFGI_PROBES:
@@ -677,6 +707,10 @@ Draws the decal atlas used by :ref:`Decal<class_Decal>`\ s and light projector t
 .. rst-class:: classref-enumeration-constant
 
 :ref:`DebugDraw<enum_Viewport_DebugDraw>` **DEBUG_DRAW_SDFGI_PROBES** = ``17``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -686,6 +720,10 @@ Draws the decal atlas used by :ref:`Decal<class_Decal>`\ s and light projector t
 
 :ref:`DebugDraw<enum_Viewport_DebugDraw>` **DEBUG_DRAW_GI_BUFFER** = ``18``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_Viewport_constant_DEBUG_DRAW_DISABLE_LOD:
@@ -693,6 +731,10 @@ Draws the decal atlas used by :ref:`Decal<class_Decal>`\ s and light projector t
 .. rst-class:: classref-enumeration-constant
 
 :ref:`DebugDraw<enum_Viewport_DebugDraw>` **DEBUG_DRAW_DISABLE_LOD** = ``19``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -702,6 +744,10 @@ Draws the decal atlas used by :ref:`Decal<class_Decal>`\ s and light projector t
 
 :ref:`DebugDraw<enum_Viewport_DebugDraw>` **DEBUG_DRAW_CLUSTER_OMNI_LIGHTS** = ``20``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_Viewport_constant_DEBUG_DRAW_CLUSTER_SPOT_LIGHTS:
@@ -709,6 +755,10 @@ Draws the decal atlas used by :ref:`Decal<class_Decal>`\ s and light projector t
 .. rst-class:: classref-enumeration-constant
 
 :ref:`DebugDraw<enum_Viewport_DebugDraw>` **DEBUG_DRAW_CLUSTER_SPOT_LIGHTS** = ``21``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -718,6 +768,10 @@ Draws the decal atlas used by :ref:`Decal<class_Decal>`\ s and light projector t
 
 :ref:`DebugDraw<enum_Viewport_DebugDraw>` **DEBUG_DRAW_CLUSTER_DECALS** = ``22``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_Viewport_constant_DEBUG_DRAW_CLUSTER_REFLECTION_PROBES:
@@ -725,6 +779,10 @@ Draws the decal atlas used by :ref:`Decal<class_Decal>`\ s and light projector t
 .. rst-class:: classref-enumeration-constant
 
 :ref:`DebugDraw<enum_Viewport_DebugDraw>` **DEBUG_DRAW_CLUSTER_REFLECTION_PROBES** = ``23``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -734,6 +792,10 @@ Draws the decal atlas used by :ref:`Decal<class_Decal>`\ s and light projector t
 
 :ref:`DebugDraw<enum_Viewport_DebugDraw>` **DEBUG_DRAW_OCCLUDERS** = ``24``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_Viewport_constant_DEBUG_DRAW_MOTION_VECTORS:
@@ -741,6 +803,10 @@ Draws the decal atlas used by :ref:`Decal<class_Decal>`\ s and light projector t
 .. rst-class:: classref-enumeration-constant
 
 :ref:`DebugDraw<enum_Viewport_DebugDraw>` **DEBUG_DRAW_MOTION_VECTORS** = ``25``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -768,7 +834,7 @@ enum **DefaultCanvasItemTextureFilter**:
 
 :ref:`DefaultCanvasItemTextureFilter<enum_Viewport_DefaultCanvasItemTextureFilter>` **DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST** = ``0``
 
-The texture filter reads from the nearest pixel only. The simplest and fastest method of filtering, but the texture will look pixelized.
+The texture filter reads from the nearest pixel only. This makes the texture look pixelated from up close, and grainy from a distance (due to mipmaps not being sampled).
 
 .. _class_Viewport_constant_DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_LINEAR:
 
@@ -776,7 +842,7 @@ The texture filter reads from the nearest pixel only. The simplest and fastest m
 
 :ref:`DefaultCanvasItemTextureFilter<enum_Viewport_DefaultCanvasItemTextureFilter>` **DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_LINEAR** = ``1``
 
-The texture filter blends between the nearest 4 pixels. Use this when you want to avoid a pixelated style, but do not want mipmaps.
+The texture filter blends between the nearest 4 pixels. This makes the texture look smooth from up close, and grainy from a distance (due to mipmaps not being sampled).
 
 .. _class_Viewport_constant_DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_LINEAR_WITH_MIPMAPS:
 
@@ -784,7 +850,9 @@ The texture filter blends between the nearest 4 pixels. Use this when you want t
 
 :ref:`DefaultCanvasItemTextureFilter<enum_Viewport_DefaultCanvasItemTextureFilter>` **DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_LINEAR_WITH_MIPMAPS** = ``2``
 
-The texture filter reads from the nearest pixel in the nearest mipmap. The fastest way to read from textures with mipmaps.
+The texture filter blends between the nearest 4 pixels and between the nearest 2 mipmaps (or uses the nearest mipmap if :ref:`ProjectSettings.rendering/textures/default_filters/use_nearest_mipmap_filter<class_ProjectSettings_property_rendering/textures/default_filters/use_nearest_mipmap_filter>` is ``true``). This makes the texture look smooth from up close, and smooth from a distance.
+
+Use this for non-pixel art textures that may be viewed at a low scale (e.g. due to :ref:`Camera2D<class_Camera2D>` zoom or sprite scaling), as mipmaps are important to smooth out pixels that are smaller than on-screen pixels.
 
 .. _class_Viewport_constant_DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST_WITH_MIPMAPS:
 
@@ -792,7 +860,9 @@ The texture filter reads from the nearest pixel in the nearest mipmap. The faste
 
 :ref:`DefaultCanvasItemTextureFilter<enum_Viewport_DefaultCanvasItemTextureFilter>` **DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST_WITH_MIPMAPS** = ``3``
 
-The texture filter blends between the nearest 4 pixels and between the nearest 2 mipmaps.
+The texture filter reads from the nearest pixel and blends between the nearest 2 mipmaps (or uses the nearest mipmap if :ref:`ProjectSettings.rendering/textures/default_filters/use_nearest_mipmap_filter<class_ProjectSettings_property_rendering/textures/default_filters/use_nearest_mipmap_filter>` is ``true``). This makes the texture look pixelated from up close, and smooth from a distance.
+
+Use this for non-pixel art textures that may be viewed at a low scale (e.g. due to :ref:`Camera2D<class_Camera2D>` zoom or sprite scaling), as mipmaps are important to smooth out pixels that are smaller than on-screen pixels.
 
 .. _class_Viewport_constant_DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_MAX:
 
@@ -860,6 +930,10 @@ enum **SDFOversize**:
 
 :ref:`SDFOversize<enum_Viewport_SDFOversize>` **SDF_OVERSIZE_100_PERCENT** = ``0``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_Viewport_constant_SDF_OVERSIZE_120_PERCENT:
@@ -867,6 +941,10 @@ enum **SDFOversize**:
 .. rst-class:: classref-enumeration-constant
 
 :ref:`SDFOversize<enum_Viewport_SDFOversize>` **SDF_OVERSIZE_120_PERCENT** = ``1``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -876,6 +954,10 @@ enum **SDFOversize**:
 
 :ref:`SDFOversize<enum_Viewport_SDFOversize>` **SDF_OVERSIZE_150_PERCENT** = ``2``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_Viewport_constant_SDF_OVERSIZE_200_PERCENT:
@@ -884,6 +966,10 @@ enum **SDFOversize**:
 
 :ref:`SDFOversize<enum_Viewport_SDFOversize>` **SDF_OVERSIZE_200_PERCENT** = ``3``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_Viewport_constant_SDF_OVERSIZE_MAX:
@@ -891,6 +977,10 @@ enum **SDFOversize**:
 .. rst-class:: classref-enumeration-constant
 
 :ref:`SDFOversize<enum_Viewport_SDFOversize>` **SDF_OVERSIZE_MAX** = ``4``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -910,6 +1000,10 @@ enum **SDFScale**:
 
 :ref:`SDFScale<enum_Viewport_SDFScale>` **SDF_SCALE_100_PERCENT** = ``0``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_Viewport_constant_SDF_SCALE_50_PERCENT:
@@ -917,6 +1011,10 @@ enum **SDFScale**:
 .. rst-class:: classref-enumeration-constant
 
 :ref:`SDFScale<enum_Viewport_SDFScale>` **SDF_SCALE_50_PERCENT** = ``1``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -926,6 +1024,10 @@ enum **SDFScale**:
 
 :ref:`SDFScale<enum_Viewport_SDFScale>` **SDF_SCALE_25_PERCENT** = ``2``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_Viewport_constant_SDF_SCALE_MAX:
@@ -933,6 +1035,10 @@ enum **SDFScale**:
 .. rst-class:: classref-enumeration-constant
 
 :ref:`SDFScale<enum_Viewport_SDFScale>` **SDF_SCALE_MAX** = ``3``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -1907,7 +2013,7 @@ Returns the mouse's position in this **Viewport** using the coordinate system of
 
 :ref:`PositionalShadowAtlasQuadrantSubdiv<enum_Viewport_PositionalShadowAtlasQuadrantSubdiv>` **get_positional_shadow_atlas_quadrant_subdiv** **(** :ref:`int<class_int>` quadrant **)** |const|
 
-Returns the :ref:`PositionalShadowAtlasQuadrantSubdiv<enum_Viewport_PositionalShadowAtlasQuadrantSubdiv>` of the specified quadrant.
+Returns the positional shadow atlas quadrant subdivision of the specified quadrant.
 
 .. rst-class:: classref-item-separator
 
@@ -2000,6 +2106,20 @@ Returns the drag data from the GUI, that was previously returned by :ref:`Contro
 :ref:`Control<class_Control>` **gui_get_focus_owner** **(** **)** |const|
 
 Returns the :ref:`Control<class_Control>` having the focus within this viewport. If no :ref:`Control<class_Control>` has the focus, returns null.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_Viewport_method_gui_get_hovered_control:
+
+.. rst-class:: classref-method
+
+:ref:`Control<class_Control>` **gui_get_hovered_control** **(** **)** |const|
+
+Returns the :ref:`Control<class_Control>` that the mouse is currently hovering over in this viewport. If no :ref:`Control<class_Control>` has the cursor, returns null.
+
+Typically the leaf :ref:`Control<class_Control>` node or deepest level of the subtree which claims hover. This is very useful when used together with :ref:`Node.is_ancestor_of<class_Node_method_is_ancestor_of>` to find if the mouse is within a control tree.
 
 .. rst-class:: classref-item-separator
 
